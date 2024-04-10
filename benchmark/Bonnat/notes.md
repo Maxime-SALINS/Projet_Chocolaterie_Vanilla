@@ -32,3 +32,26 @@ Même header que celui de la page d'accueil. Elle a deux images en background po
 
 ## Page Grand crus
 
+Cette page descripts les principaux produits vendu dan la boutique. Comme pour la page précédentes, elle est essentiellement composé d'image et de textes. Il y a différents types d'affichages qui rend la page plus sympatique à rengarder.
+
+Quelques exemples :
+![VIEW](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Exemple-1.png)
+![VIEW](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Exemple-2.png)
+
+## Boutique en ligne
+
+Cette page affiche un catalogue de produits. C'est une page très épurée, on comprend très vite comment fonctionne la page, elle a une fonctionalité de panier. Elle aussi une fonctionalité de filtre. Il manque juste une barre de recherche de produits. L'affichage des produits est fluide, il y a la possibilité d'accéder au détail des produits ou de les ajouter au panier.
+
+Quelques exemples :
+![VIEW](/benchmark/Bonnat/Image-site/Page-Produit-boutique-en-ligne/Page-vente-produit-img1.png)
+![VIEW](/benchmark/Bonnat/Image-site/Page-Produit-boutique-en-ligne/Page-vente-produit-img2.png)
+
+## Page contact
+
+Elle contient des informations pour contacter l'entreprise avec l'email et le numéro de téléphone. Il y a aussi des informations sur la localisation des boutiques, ainsi qu'un formulaire de contact.
+
+Quelques exemples :
+![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-1.png)
+![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-2.png)
+![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-3.png)
+![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-4.png)
