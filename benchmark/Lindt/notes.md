@@ -26,6 +26,9 @@ La page d'accueil est composé :
 
 ![FOOTER](/benchmark/Lindt/Image-site/Page%20accueil/Page-accueil-view-9.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Lindt/Image-site/Page%20accueil/Performance-page.png)
+
 ## Page produits
 
 Comme sur les autres site, la page produit affiche un catalogue, il est lisible et agréable à regarder visuelement. Il y a aussi des fonctionnalité de filtre et de trie des produits. Pour les produits type "boites" ou "coffret" il y a possibilité de choisir la composition (voir l'image numéro 2 dans les exemples). Et il y a la possibilité d'ajouter au panier les produits que le client souhaite acheter. 
@@ -34,6 +37,9 @@ Quelques exemples :
 ![VIEW](/benchmark/Lindt/Image-site/Page%20produit/Page-produits-view-1.png)
 ![VIEW](/benchmark/Lindt/Image-site/Page%20produit/Page-produits-view-2.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Lindt/Image-site/Page%20produit/Performance-page.png)
+
 ## Page contact
 
 Elle contient des informations pour contacter l'entreprise avec l'email et le numéro de téléphone. Il y a aussi des informations sur la localisation des boutiques, ainsi qu'un formulaire de contact. Il y a aussi un petit truc en plus que les autres site n'ont pas, c'est le catcha pour éviter les robots, c'est un paramêtre de sécurité qui peut être important de rajouter dans le traitement de formulaire.
@@ -41,3 +47,6 @@ Elle contient des informations pour contacter l'entreprise avec l'email et le nu
 Quelques exemples :
 ![VIEW](/benchmark/Lindt/Image-site/Page%20contact/Page-contact-view-1.png)
 ![VIEW](/benchmark/Lindt/Image-site/Page%20contact/Page-contact-view-2.png)
+
+Performance de la page :
+![PERFORMANCE](/benchmark/Lindt/Image-site/Page%20contact/Performance-page.png)
