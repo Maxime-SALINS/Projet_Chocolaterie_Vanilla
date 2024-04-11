@@ -21,6 +21,9 @@ La page d'accueil est composé :
 
 ![footer](/benchmark/Bonnat/Image-site/Page-Accueil/Page-accueil-footer.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Bonnat/Image-site/Page-Accueil/Performance-page.png)
+
 ## Page Histoire CEO
 
 Même header que celui de la page d'accueil. Elle a deux images en background pour accompagné le titre, c'est deux images sont trop grandes à mon goût et elles ralentissent les performances du site. En suite, la page est principalement composé d'images et de textes qui racontes l'histoire du CEO de l'entreprise. Toutefois, d'un point de vue accéssibilité, la page est bien, la police des textes est simple, lisible et fine.
@@ -30,6 +33,9 @@ Même header que celui de la page d'accueil. Elle a deux images en background po
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Historique/Page-historique-description-suite.png)
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Historique/Page-historique-description-suite-2.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Bonnat/Image-site/Page-Historique/Performance-Page.png)
+
 ## Page Grand crus
 
 Cette page descripts les principaux produits vendu dan la boutique. Comme pour la page précédentes, elle est essentiellement composé d'image et de textes. Il y a différents types d'affichages qui rend la page plus sympatique à rengarder.
@@ -38,6 +44,9 @@ Quelques exemples :
 ![VIEW](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Exemple-1.png)
 ![VIEW](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Exemple-2.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Performance-page.png)
+
 ## Boutique en ligne
 
 Cette page affiche un catalogue de produits. C'est une page très épurée, on comprend très vite comment fonctionne la page, elle a une fonctionalité de panier. Elle aussi une fonctionalité de filtre. Il manque juste une barre de recherche de produits. L'affichage des produits est fluide, il y a la possibilité d'accéder au détail des produits ou de les ajouter au panier.
@@ -45,6 +54,9 @@ Cette page affiche un catalogue de produits. C'est une page très épurée, on c
 Quelques exemples :
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Produit-boutique-en-ligne/Page-vente-produit-img1.png)
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Produit-boutique-en-ligne/Page-vente-produit-img2.png)
+
+Performance de la page :
+![PERFORMANCE](/benchmark/Bonnat/Image-site/Page-présentation-produitfare/Performance-page.png)
 
 ## Page contact
 
@@ -55,3 +67,6 @@ Quelques exemples :
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-2.png)
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-3.png)
 ![VIEW](/benchmark/Bonnat/Image-site/Page-Contact/Page-contact-infos-4.png)
+
+Performance de la page :
+![PERFORMANCE](/benchmark/Bonnat/Image-site/Page-Contact/Performance-page.png)
