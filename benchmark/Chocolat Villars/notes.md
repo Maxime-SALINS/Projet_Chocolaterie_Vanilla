@@ -25,6 +25,9 @@ La page d'accueil est composé :
 
 ![footer](/benchmark/Chocolat%20Villars/Image-site/Page%20d'accueil/Page%20d'acceuil-view-10.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Chocolat%20Villars/Image-site/Page%20d'accueil/Performance-page.png)
+
 ## Page produits
 
 Comme sur le site de Bonnat, le bg est blanc et chaque page est simple/épurée, se qui rend le site agréable à visiter.
@@ -37,9 +40,15 @@ Quelques exemples :
 ![VIEW](/benchmark/Chocolat%20Villars/Image-site/Page%20produits/Page%20produit-view-3.png)
 ![VIEW](/benchmark/Chocolat%20Villars/Image-site/Page%20produits/Page%20produit-view-4.png)
 
+Performance de la page :
+![PERFORMANCE](/benchmark/Chocolat%20Villars/Image-site/Page%20produits/Performance-page.png)
+
 ## Page contact
 
 Elle contient des informations pour contacter l'entreprise avec l'email et le numéro de téléphone. Il y a aussi des informations sur la localisation des boutiques, ainsi qu'un formulaire de contact.
 
 Quelques exemples :
 ![VIEW](/benchmark/Chocolat%20Villars/Image-site/Page%20contact/Page%20contact.png)
+
+Performance de la page :
+![PERFORMANCE](/benchmark/Chocolat%20Villars/Image-site/Page%20contact/Performance-page.png)
