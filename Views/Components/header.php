@@ -15,9 +15,3 @@ $title = 'Page | Accueil';
     <header>
 
     </header>
-    
-    <footer>
-
-    </footer>
-</body>
-</html>
