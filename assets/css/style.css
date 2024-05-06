@@ -53,6 +53,11 @@
     color: #876647 !important;
 }
 
+.lien-drop:hover{
+    background-color: #876647 !important;
+    color: white !important;
+}
+
 /*----- Style lien contact-----*/
 
 .div-contact {
@@ -62,4 +67,16 @@
 .lien-contact {
     font-family: "Lustria", serif;
     color: white;
+}
+
+.div-contact:hover{
+    background-color: #5E3A20;
+}
+
+/*----- Responsive Navbar ------*/
+
+@media screen and (max-width: 576px) {
+    .titre_principal {
+        font-size: medium !important;
+    }
 }
