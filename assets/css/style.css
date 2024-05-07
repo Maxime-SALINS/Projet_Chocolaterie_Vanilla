@@ -82,6 +82,25 @@ nav{
     background-color: #5E3A20;
 }
 
+/*----- Style footer -----*/
+
+.footer-style{
+    background-color: #F8992F;
+}
+
+.titre-footer, .lien-footer {
+    font-family: "Lustria", serif;
+    color : black !important;
+}
+
+.logo-news{
+    width: 10%;
+}
+
+.btn{
+    background-color: #5E3A20 !important;
+}
+
 /*----- Responsive Navbar ------*/
 
 @media screen and (max-width: 1024px) {
