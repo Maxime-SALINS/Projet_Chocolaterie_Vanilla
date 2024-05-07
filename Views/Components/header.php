@@ -19,14 +19,14 @@ $title = 'Page | Accueil';
 </head>
 
 <body>
-    <header class="d-flex flex-column align-items-center position relative">
-        <div class="position-absolute top-0 start-0">
+    <header class="position relative">
+        <div class="d-flex align-items-center">
             <a class="navbar-brand" href="index.php">
-                <img class="w-25 mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
+                <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
             </a>
+            <h1 class="titre_principal text-uppercase text-center my-3 mx-auto">Chocolaterie la rouvière</h1>
         </div>
-        <h1 class="titre_principal text-uppercase text-center my-3">Chocolaterie la rouvière</h1>
-        <nav class="p-0 w-100 navbar navbar-expand-lg">
+        <nav class="p-0 navbar navbar-expand-lg">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -49,11 +49,11 @@ $title = 'Page | Accueil';
                         <li class="nav-item mx-5">
                             <a class="nav-link nav-link-ltr text-uppercase" href="#">Histoire</a>
                         </li>
+                        <li class="header-contact nav-item mx-5 px-4 pb-1">
+                            <a class="lien-contact text-decoration-none text-center" href="#" target="_blank">contact</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="rounded-bottom-1 div-contact mx-2 px-4 pb-1 position-absolute top-0 end-0">
-            <a class="lien-contact text-decoration-none text-center" href="#" target="_blank">contact</a>
-        </div>
     </header>

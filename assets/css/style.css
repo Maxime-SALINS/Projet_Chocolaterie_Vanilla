@@ -10,6 +10,10 @@
     justify-content: center !important;
 }
 
+nav{
+    position: inherit !important;
+}
+
 /*----- Style hover navbar -----*/
 
 .nav-link:hover {
@@ -60,8 +64,13 @@
 
 /*----- Style lien contact-----*/
 
-.div-contact {
+.header-contact{
+    position: absolute;
+    top: 0;
+    right: 0;
     background-color: #D39456;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 .lien-contact {
@@ -69,14 +78,29 @@
     color: white;
 }
 
-.div-contact:hover{
+.header-contact:hover{
     background-color: #5E3A20;
 }
 
 /*----- Responsive Navbar ------*/
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1024px) {
     .titre_principal {
-        font-size: medium !important;
+        font-size: large !important;
+    }
+    .header-contact{
+        position: inherit !important;
+        border-radius: 0% !important;
+        text-transform: uppercase !important;
+        width: fit-content !important;
+    }
+    li{
+        padding: 0 2% !important;
+    }
+}
+
+@media screen and (max-width: 596px) {
+    .titre_principal {
+        font-size: smaller !important;
     }
 }
