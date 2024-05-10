@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Lustria", serif;
 }
 
 /*----- Style navbar -----*/
@@ -40,20 +41,17 @@ nav{
 /*----- Style titre -----*/
 
 .titre_principal{
-    font-family: "Lustria", serif;
     color: #5E3A20;
 }
 
 /*----- Style lien navbar-----*/
 
 .nav-link{
-    font-family: "Lustria", serif;
     color: #876647;
     position: relative;
 }
 
 .lien-drop{
-    font-family: "Lustria", serif !important;
     color: #876647 !important;
 }
 
@@ -74,7 +72,6 @@ nav{
 }
 
 .lien-contact {
-    font-family: "Lustria", serif;
     color: white;
 }
 
@@ -89,7 +86,6 @@ nav{
 }
 
 .titre-footer, .lien-footer {
-    font-family: "Lustria", serif;
     color : black !important;
 }
 

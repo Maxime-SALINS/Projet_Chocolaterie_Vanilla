@@ -12,7 +12,7 @@
             </form>
         </div>
         <div class="row my-5">
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-3">
                 <div class="container-fluid text-center">
                     <h3 class="titre-footer text-uppercase text-decoration-underline"">Sommaire</h3>
                     <ul class="nav flex-column">
@@ -28,7 +28,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-3">
                 <div class="container-fluid text-center">
                     <h3 class="titre-footer text-uppercase text-decoration-underline"">Infomations</h3>
                     <ul class="nav flex-column">
@@ -47,10 +47,10 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-4 mb-3">
                 <div class="container-fluid text-center">
                     <h3 class="titre-footer text-uppercase text-decoration-underline">Contact</h3>
-                    <div class="container-fluid">
+                    <div class="container-fluid mb-3">
                         <p class="lien-footer">N° de téléphone: 06 29 88 26 23</p>
                         <p class="lien-footer">Email: chocolaterie.larouviere@gmail.com</p>
                         <a class="lien-footer" href="#" target="_blank" rel="noopener noreferrer">Contactez-nous !</a>
@@ -71,6 +71,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid text-center">
+            <p class="">Chocolaterie la rouvière - Copyright © 2024 - Tous droits réservés</p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
