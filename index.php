@@ -29,23 +29,23 @@
 </div>
 
 <!---- Section product ---->
-<section class="text-center my-5">
-    <h2 class="text-uppercase">nos produits</h2>
+<section class="container-fluid text-center my-5">
+    <h2 class="titre-secondary text-uppercase my-4">nos produits</h2>
     <div class="row">
         <div class="col-12 col-md-4">
-            <h3 class="text-uppercase">chocolat</h3>
-            <img class="card-img-top" src="/assets/images/produits/DSCF8353.JPG" alt="image produit chocolat">
-            <a href="#">En savoir plus</a>
+            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">chocolat</h3>
+            <img class="card-img-top rounded" src="/assets/images/produits/1ACBEBBD-B896-44F1-A988-422B1CC17A2C.jpeg" alt="image produit chocolat">
+            <a class="btn btn-product text-white my-3" href="#">En savoir plus</a>
         </div>
         <div class="col-12 col-md-4">
-            <h3 class="text-uppercase">café & thé</h3>
-            <img class="card-img-top" src="/assets/images/produits/810BC1B5-95C7-49E7-B402-B8A8757E5BC0.jpeg" alt="image produit café et thé">
-            <a href="#">En savoir plus</a>
+            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">café & thé</h3>
+            <img class="card-img-top rounded" src="/assets/images/produits/810BC1B5-95C7-49E7-B402-B8A8757E5BC0.jpeg" alt="image produit café et thé">
+            <a class="btn btn-product text-white my-3" href="#">En savoir plus</a>
         </div>
         <div class="col-12 col-md-4">
-            <h3 class="text-uppercase">glace</h3>
-            <img class="card-img-top" src="/assets/images/produits/DSCF8358.JPG" alt="image produit glace">
-            <a href="#">En savoir plus</a>
+            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">glace</h3>
+            <img class="card-img-top rounded" src="/assets/images/produits/84D9AD91-F57A-4F58-8C75-0F56FC5419A5.jpeg" alt="image produit glace">
+            <a class="btn btn-product text-white my-3" href="#">En savoir plus</a>
         </div>
     </div>
 </section>
@@ -91,13 +91,13 @@
 </div>
 
 <!---- Carousel n°3: avis google ---->
-<section>
-    <h2>ce que disent nos clients</h2>
+<section class="container-fluid">
+    <h2 class="titre-secondary text-uppercase text-center">ce que disent nos clients</h2>
 </section>
 
 <!---- Carousel n°3: avis google ---->
-<section>
-    <h2>suivez nous sur nos réseaux</h2>
+<section class="container-fluid">
+    <h2 class="titre-secondary text-uppercase text-center">suivez nous sur nos réseaux</h2>
 </section>
 
 <?php require 'views/Components/footer.php';?>

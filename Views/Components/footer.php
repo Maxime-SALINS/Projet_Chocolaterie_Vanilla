@@ -6,8 +6,8 @@
                     <input class="form-control" type="email" name="useremail_news" id="useremail_news" placeholder="Entrez votre email">
                 </div>
                 <div class="col-auto text-start my-1">
-                    <button class="btn text-white" type="submit">Envoyer</button>
-                    <img src="../../assets/images/logo/Image-newsletter.png" alt="">
+                    <button class="btn btn-footer text-white" type="submit">Envoyer</button>
+                    <img src="../../assets/images/logo/Image-newsletter.png" alt="logo enveloppe-lettre">
                 </div>
             </form>
         </div>

@@ -40,11 +40,11 @@ nav{
 
 /*----- Style titre -----*/
 
-.titre_principal{
+.titre_principal, .titre-secondary, .titre-tertiary{
     color: #5E3A20;
 }
 
-/*----- Style lien navbar-----*/
+/*----- Style lien navbar -----*/
 
 .nav-link{
     color: #876647;
@@ -79,6 +79,12 @@ nav{
     background-color: #5E3A20;
 }
 
+/*----- Style Product -----*/
+
+.btn-product{
+    background-color: #D39456 !important;
+}
+
 /*----- Style footer -----*/
 
 .footer-style{
@@ -93,7 +99,7 @@ nav{
     width: 10%;
 }
 
-.btn{
+.btn-footer{
     background-color: #5E3A20 !important;
 }
 
