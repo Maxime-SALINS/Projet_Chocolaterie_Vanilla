@@ -106,9 +106,6 @@ nav{
 /*----- Responsive Navbar ------*/
 
 @media screen and (max-width: 1024px) {
-    .titre_principal {
-        font-size: large !important;
-    }
     .header-contact{
         position: inherit !important;
         border-radius: 0% !important;
@@ -120,8 +117,3 @@ nav{
     }
 }
 
-@media screen and (max-width: 596px) {
-    .titre_principal {
-        font-size: smaller !important;
-    }
-}

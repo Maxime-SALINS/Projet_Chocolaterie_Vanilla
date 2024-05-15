@@ -1,4 +1,10 @@
-<?php require 'views/Components/header.php'; ?>
+<?php
+ 
+$title_default = 'Page | Chocolaterie';
+$title = 'Page | Accueil';
+require 'views/Components/header.php'; 
+
+?>
 
 <!---- Carousel n°1 ---->
 <div id="carouselExampleIndicators" class="carousel slide">
