@@ -1,7 +1,3 @@
-<?php
-$title_default = 'Page | Chocolaterie';
-$title = 'Page | Accueil';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,17 +16,17 @@ $title = 'Page | Accueil';
 
 <body>
     <header class="position relative">
-        <div class="d-flex align-items-center">
+        <div class="d-flex navbar align-items-center">
             <a class="navbar-brand" href="index.php">
                 <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
             </a>
-            <h1 class="titre_principal text-uppercase text-center my-3 mx-auto">Chocolaterie la rouvière</h1>
+            <h1 class="titre_principal text-uppercase my-3">Chocolaterie la rouvière</h1>
+            <button class="navbar-toggler d-lg-none d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
         <nav class="p-0 navbar navbar-expand-lg">
             <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav">
                         <li class="nav-item mx-5">
@@ -47,13 +43,16 @@ $title = 'Page | Accueil';
                             </ul>
                         </li>
                         <li class="nav-item mx-5">
-                            <a class="nav-link nav-link-ltr text-uppercase" href="#">Histoire</a>
+                            <a class="nav-link nav-link-ltr text-uppercase" href="../../views/Pages/histoire.php">Histoire</a>
                         </li>
-                        <li class="header-contact nav-item mx-5 px-4 pb-1">
+                        <li class="header-contact nav-item mx-5 px-4 pb-1 d-block d-lg-none d-xl-none">
                             <a class="lien-contact text-decoration-none text-center" href="#" target="_blank">contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <div class="header-contact nav-item mx-5 px-4 pb-1 d-none d-md-none d-lg-block d-xl-block">
+            <a class="lien-contact text-decoration-none text-center" href="#" target="_blank">contact</a>
+        </div>
     </header>
