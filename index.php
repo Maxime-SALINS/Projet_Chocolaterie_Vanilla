@@ -2,6 +2,7 @@
  
 $title_default = 'Page | Chocolaterie';
 $title = 'Page | Accueil';
+$first_title = 'chocolaterie la rouvière';
 require 'views/Components/header.php'; 
 
 ?>
