@@ -11,10 +11,6 @@
     justify-content: center !important;
 }
 
-nav{
-    position: inherit !important;
-}
-
 /*----- Style hover navbar -----*/
 
 .nav-link:hover {
@@ -63,12 +59,8 @@ nav{
 /*----- Style lien contact-----*/
 
 .header-contact{
-    position: absolute;
-    top: 0;
-    right: 0;
+    margin-bottom: 6rem !important;
     background-color: #D39456;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5%;
 }
 
 .lien-contact {
@@ -106,12 +98,14 @@ nav{
 /*----- Responsive Navbar ------*/
 
 @media screen and (max-width: 1024px) {
-    .header-contact{
-        position: inherit !important;
-        border-radius: 0% !important;
-        text-transform: uppercase !important;
-        width: fit-content !important;
+    .contact-responsive{
+        color: #876647 !important;
     }
+
+    .img-fluid{
+        width: 70% !important;
+    }
+
     li{
         padding: 0 2% !important;
     }
