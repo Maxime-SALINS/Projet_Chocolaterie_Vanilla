@@ -1,11 +1,3 @@
-<?php
-
-$title_default = 'Page | Chocolaterie';
-$title = 'Page | Contact';
-$first_title = 'contact';
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
-
-?>
 <div class="row my-5">
     <div class="col-12 col-lg-5">
         <section class="container">
@@ -79,4 +71,3 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
         </div>
     </section>
 </div>
-<?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/footer.php'; ?>

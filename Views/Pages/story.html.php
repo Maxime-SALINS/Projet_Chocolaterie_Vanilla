@@ -1,12 +1,3 @@
-<?php
-
-$title_default = 'Page | Chocolaterie';
-$title = 'Page | Histoire';
-$first_title = 'notre histoire';
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
-
-?>
-
 <div class="my-2">
     <img class="img-fluid w-100" src="../../assets/images/img-story/DSCF6765.JPG" alt="Bannière-chocolaterie">
 </div>
@@ -93,6 +84,3 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
         </div>
     </div>
 </section>
-
-
-<?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/footer.php'; ?>

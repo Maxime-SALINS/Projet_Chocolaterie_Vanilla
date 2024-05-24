@@ -1,12 +1,3 @@
-<?php
-
-$title_default = 'Page | Chocolaterie';
-$title = 'Page | Produits';
-$first_title = 'nos produits';
-require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
-
-?>
-
 <div class="row">
     <div class="col-2 color-product p-0"></div>
     <div class="col-10 p-0">
@@ -180,5 +171,3 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/header.php';
         </div>
     </section>
 </div>
-
-<?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'Components/footer.php'; ?>
