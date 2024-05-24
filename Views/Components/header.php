@@ -34,9 +34,9 @@
                                         Produits
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="lien-drop dropdown-item text-uppercase" href="#">Chocolat</a></li>
-                                        <li><a class="lien-drop dropdown-item text-uppercase" href="#">Café & Thé</a></li>
-                                        <li><a class="lien-drop dropdown-item text-uppercase" href="#">Glace</a></li>
+                                        <li><a class="lien-drop dropdown-item text-uppercase" href="../../views/Pages/product-list.html.php">Chocolat</a></li>
+                                        <li><a class="lien-drop dropdown-item text-uppercase" href="../../views/Pages/404.html.php">Café & Thé</a></li>
+                                        <li><a class="lien-drop dropdown-item text-uppercase" href="../../views/Pages/404.html.php">Glace</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item mx-5">
@@ -51,7 +51,9 @@
                 </nav>
             </div>
             <div class="header-contact rounded-bottom-1 nav-item mx-4 px-4 pb-1 d-none d-md-none d-lg-block d-xl-block">
-                <a class="lien-contact text-decoration-none text-center" href="#" target="_blank">contact</a>
+                <a class="lien-contact text-decoration-none text-center" href="../../views/Pages/contact.html.php" target="_blank">
+                    contact
+                </a>
             </div>
             <button class="navbar-toggler d-lg-none d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

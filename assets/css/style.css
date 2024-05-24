@@ -77,6 +77,35 @@
     background-color: #D39456 !important;
 }
 
+/*----- Style text -----*/
+
+.text-description{
+    color: #5E3A20;
+    text-align: justify;
+}
+
+/*----- Style page product -----*/
+
+.color-product{
+    background-color: #F8992F;
+}
+
+.btn-product-small {
+    max-width: 150px;
+    width: 100%;
+}
+
+.filter{
+    background-color: #F8992F50;
+    height: fit-content;
+}
+
+/*----- Style contact ------*/
+
+.h-textarea{
+    height: 450px;
+}
+
 /*----- Style footer -----*/
 
 .footer-style{
