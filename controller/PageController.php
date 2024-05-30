@@ -1,7 +1,7 @@
 <?php
 namespace App\controller;
 
-class PageController {
+class PageController extends AbstractController {
 
     public function index()
     {
@@ -9,7 +9,8 @@ class PageController {
         $this->render('home', [
             'title' => 'Page | Accueil',
             'first_title' => 'chocolaterie la rouvière',
-            'title_default' => 'Page | Chocolaterie'
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'index'
         ]);
     }
 
@@ -18,7 +19,8 @@ class PageController {
         $this->render('contact', [
             'title' => 'Page | Contact',
             'first_title' => 'contact',
-            'title_default' => 'Page | Chocolaterie'
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'contact'
         ]);
     }
 
@@ -27,7 +29,8 @@ class PageController {
         $this->render('story', [
             'title' => 'Page | Histoire',
             'first_title' => 'notre histoire',
-            'title_default' => 'Page | Chocolaterie'
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'story'
         ]);
     }
 
@@ -36,7 +39,8 @@ class PageController {
         $this->render('product-list', [
             'title' => 'Page | Produits',
             'first_title' => 'nos produits',
-            'title_default' => 'Page | Chocolaterie'
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'product'
         ]);
     }
 
@@ -45,19 +49,27 @@ class PageController {
         $this->render('404', [
             'title' => 'Page | Erreur 404',
             'first_title' => 'erreur 404',
-            'title_default' => 'Page | Chocolaterie'
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'error'
         ]);
     }
 
-    public function render(string $path, array $data=[]):void 
+    public function connection()
     {
-        extract($data);
-        ob_start();
-        require_once 'views/Components/header.php';
-        require_once 'views/Pages/'.$path.'.html.php';
-        require_once 'views/Components/footer.php';
-        $content = ob_get_clean();
-        require_once 'views/Pages/base.html.php';
+        $this->render('login', [
+            'title' => 'Page | Connexion',
+            'first_title' => 'connexion',
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'login'
+        ]);
     }
 
+    public function dashboard()
+    {
+        $this->render('dashboard', [
+            'title' => 'Dashboard',
+            'title_default' => 'Page | Chocolaterie',
+            'name' => 'dashboard'
+        ]);
+    }
 }

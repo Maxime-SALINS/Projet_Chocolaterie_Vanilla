@@ -1,4 +1,5 @@
 <?php
+namespace App\model;
 
 class User {
 
@@ -6,8 +7,9 @@ class User {
     private $email;
     private $password;
 
-    public function setUsername(string $username)
+    public function setUsername(string $name)
     {
+        $username = htmlspecialchars($name);
         $this->username = $username;
     }
 
@@ -18,6 +20,7 @@ class User {
 
     public function setEmail(string $email)
     {
+        $email = htmlspecialchars($email);
         $this->email = $email;
     }
 
