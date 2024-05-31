@@ -11,19 +11,19 @@
             </div>
         </form>
     </div>
-    <div class="row my-5">
+    <div class="row my-5 mx-5">
         <div class="col-12 col-md-4 mb-3">
             <div class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline"">Sommaire</h3>
                     <ul class=" nav flex-column">
                     <li class="nav-item">
-                        <a class="lien-footer nav-link" href="index.php">Accueil</a>
+                        <a class="lien-footer nav-link" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="lien-footer nav-link" href="#">Produits</a>
+                        <a class="lien-footer nav-link" href="/produits">Produits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="lien-footer nav-link" href="#">Histoire</a>
+                        <a class="lien-footer nav-link" href="/histoire">Histoire</a>
                     </li>
                     </ul>
             </div>
@@ -57,15 +57,15 @@
                 </div>
                 <div class="container-fluid">
                     <h4 class="titre-footer">Nos réseaux:</h4>
-                    <div class="d-flex justify-content-around">
+                    <div class="d-flex justify-content-around my-3">
                         <a href="#" target="_blank" rel="noopener noreferrer">
-                            <img src="../../assets/images/logo/Instagram-logo.png" alt="logo instagram">
+                            <i class="fa-brands fa-instagram fa-2xl" style="color: #000000;"></i>
                         </a>
                         <a href="" target="_blank" rel="noopener noreferrer">
-                            <img src="../../assets/images/logo/facebook-logo.png" alt="logo facebook">
+                            <i class="fa-brands fa-facebook fa-2xl" style="color: #000000;"></i>
                         </a>
                         <a href="" target="_blank" rel="noopener noreferrer">
-                            <img src="../../assets/images/logo/logo-linkedin.png" alt="logo Linkedin">
+                            <i class="fa-brands fa-linkedin fa-2xl" style="color: #000000;"></i>
                         </a>
                     </div>
                 </div>
