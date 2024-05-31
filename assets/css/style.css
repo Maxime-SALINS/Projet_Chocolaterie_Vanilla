@@ -77,6 +77,10 @@
     background-color: #D39456 !important;
 }
 
+.btn-product:hover{
+    background-color: #5E3A20 !important;
+}
+
 /*----- Style text -----*/
 
 .text-description{
@@ -127,12 +131,9 @@
 /*----- Responsive Navbar ------*/
 
 @media screen and (max-width: 1024px) {
-    .contact-responsive{
-        color: #876647 !important;
-    }
 
-    .img-fluid{
-        width: 70% !important;
+    .contact-responsive{
+        color: #5E3A20 !important;
     }
 
     li{
@@ -140,3 +141,13 @@
     }
 }
 
+@media screen and (max-width: 576px) {
+
+    .titre_principal{
+        font-size: small !important;
+    }
+
+    .img-fluid{
+        width: 50% !important;
+    }
+}

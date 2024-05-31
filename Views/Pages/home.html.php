@@ -33,17 +33,17 @@
         <div class="col-12 col-md-4">
             <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">chocolat</h3>
             <img class="card-img-top rounded" src="/assets/images/produits/1ACBEBBD-B896-44F1-A988-422B1CC17A2C.jpeg" alt="image produit chocolat">
-            <a class="btn btn-product text-white my-3" href="/views/Pages/product-list.html.php">En savoir plus</a>
+            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
         </div>
         <div class="col-12 col-md-4">
             <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">café & thé</h3>
             <img class="card-img-top rounded" src="/assets/images/produits/810BC1B5-95C7-49E7-B402-B8A8757E5BC0.jpeg" alt="image produit café et thé">
-            <a class="btn btn-product text-white my-3" href="/views/Pages/product-list.html.php">En savoir plus</a>
+            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
         </div>
         <div class="col-12 col-md-4">
             <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3">glace</h3>
             <img class="card-img-top rounded" src="/assets/images/produits/84D9AD91-F57A-4F58-8C75-0F56FC5419A5.jpeg" alt="image produit glace">
-            <a class="btn btn-product text-white my-3" href="">En savoir plus</a>
+            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
         </div>
     </div>
 </section>
