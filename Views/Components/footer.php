@@ -13,9 +13,9 @@
     </div>
     <div class="row my-5 mx-5">
         <div class="col-12 col-md-4 mb-3">
-            <div class="container-fluid text-center">
+            <section class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline"">Sommaire</h3>
-                    <ul class=" nav flex-column">
+                <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="lien-footer nav-link" href="/">Accueil</a>
                     </li>
@@ -25,51 +25,32 @@
                     <li class="nav-item">
                         <a class="lien-footer nav-link" href="/histoire">Histoire</a>
                     </li>
-                    </ul>
-            </div>
+                </ul>
+            </section>
         </div>
         <div class="col-12 col-md-4 mb-3">
-            <div class="container-fluid text-center">
-                <h3 class="titre-footer text-uppercase text-decoration-underline"">Infomations</h3>
-                    <ul class=" nav flex-column">
-                    <li>
-                        <a class="lien-footer nav-link" href="#">Mention légales</a>
-                    </li>
-                    <li>
-                        <a class="lien-footer nav-link" href="#">Cookies</a>
-                    </li>
-                    </ul>
-                    <h4 class="titre-footer">Horaires de la boutique :</h4>
-                    <ul class="list-unstyled">
-                        <li class="lien-footer">Lundi au vendredi : 8h à 18h</li>
-                        <li class="lien-footer">Samedi : 8h à 14h</li>
-                        <li class="lien-footer">Dimanche : fermé</li>
-                    </ul>
-            </div>
-        </div>
-        <div class="col-12 col-md-4 mb-3">
-            <div class="container-fluid text-center">
+            <section class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline">Contact</h3>
                 <div class="container-fluid mb-3">
                     <p class="lien-footer">N° de téléphone: 06 29 88 26 23</p>
                     <p class="lien-footer">Email: chocolaterie.larouviere@gmail.com</p>
-                    <a class="lien-footer" href="#" target="_blank" rel="noopener noreferrer">Contactez-nous !</a>
+                    <a class="lien-footer" href="/contact" target="_blank" rel="noopener noreferrer">Contactez-nous !</a>
                 </div>
-                <div class="container-fluid">
+                <section class="container-fluid">
                     <h4 class="titre-footer">Nos réseaux:</h4>
                     <div class="d-flex justify-content-around my-3">
                         <a href="#" target="_blank" rel="noopener noreferrer">
                             <i class="fa-brands fa-instagram fa-2xl" style="color: #000000;"></i>
                         </a>
-                        <a href="" target="_blank" rel="noopener noreferrer">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
                             <i class="fa-brands fa-facebook fa-2xl" style="color: #000000;"></i>
                         </a>
-                        <a href="" target="_blank" rel="noopener noreferrer">
+                        <a href="#" target="_blank" rel="noopener noreferrer">
                             <i class="fa-brands fa-linkedin fa-2xl" style="color: #000000;"></i>
                         </a>
                     </div>
-                </div>
-            </div>
+                </section>
+            </section>
         </div>
     </div>
     <div class="container-fluid text-center">
