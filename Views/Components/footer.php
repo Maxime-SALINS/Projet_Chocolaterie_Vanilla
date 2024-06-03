@@ -15,7 +15,7 @@
         <div class="col-12 col-md-4 mb-3">
             <section class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline"">Sommaire</h3>
-                <ul class="nav flex-column">
+                <ul class=" nav flex-column">
                     <li class="nav-item">
                         <a class="lien-footer nav-link" href="/">Accueil</a>
                     </li>
@@ -25,7 +25,26 @@
                     <li class="nav-item">
                         <a class="lien-footer nav-link" href="/histoire">Histoire</a>
                     </li>
-                </ul>
+                    </ul>
+            </section>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+            <section class="container-fluid text-center">
+                <h3 class="titre-footer text-uppercase text-decoration-underline"">Infomations</h3>
+                    <ul class=" nav flex-column">
+                        <li>
+                            <a class="lien-footer nav-link" href="#">Mention légales</a>
+                        </li>
+                        <li>
+                            <a class="lien-footer nav-link" href="#">Cookies</a>
+                        </li>
+                    </ul>
+                    <h4 class="titre-footer">Horaires de la boutique :</h4>
+                    <ul class="list-unstyled">
+                        <li class="lien-footer">Lundi au vendredi : 8h à 18h</li>
+                        <li class="lien-footer">Samedi : 8h à 14h</li>
+                        <li class="lien-footer">Dimanche : fermé</li>
+                    </ul>
             </section>
         </div>
         <div class="col-12 col-md-4 mb-3">

@@ -66,10 +66,15 @@ class PageController extends AbstractController {
 
     public function dashboard()
     {
-        $this->render('dashboard', [
-            'title' => 'Dashboard',
-            'title_default' => 'Page | Chocolaterie',
-            'name' => 'dashboard'
-        ]);
+        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
+            $this->redirect('/admin');
+            exit();
+        } else {
+            $this->render('dashboard', [
+                'title' => 'Dashboard',
+                'title_default' => 'Page | Chocolaterie',
+                'name' => 'dashboard'
+            ]);
+        }
     }
 }

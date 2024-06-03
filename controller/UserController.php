@@ -25,8 +25,10 @@ class UserController extends AbstractController {
                 $userManager = new UserManager;
                 
                 if($userManager->findUser($email, $password)){
-                    $this->redirect('/dashboard');
-                    exit();
+                    if($this->connexionVerification()){
+                        $this->redirect('/dashboard');
+                        exit();
+                    }
                 } else {
                     $error = "Nom d'utilisateur ou mot de passe invalide";
                     $this->render('login', [
@@ -47,6 +49,20 @@ class UserController extends AbstractController {
                     'msg_error' => $msg_error
                 ]);
             }
+        }
+    }
+
+    public function logout()
+    {
+        if($_SERVER['REQUEST_URI'] === '/logout'){
+            
+            session_start();
+
+            $_SESSION = array();
+
+            session_destroy();
+            
+            $this->redirect('/');
         }
     }
 }

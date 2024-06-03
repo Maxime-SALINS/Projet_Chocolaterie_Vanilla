@@ -20,6 +20,7 @@ class UserManager {
             return false;
         } else {
             if(password_verify($password, $user->password)){
+                $this->setUserSession($user);
                 return true;
             } else {
                 return false;
@@ -27,18 +28,19 @@ class UserManager {
         }
     }
 
-    public function setUserSession(int $id, string $username, string $role)
+    public function setUserSession($user)
     {
-        // session_start();
         $pdo = Database::getPDO();
         $sql = "UPDATE user SET lastLogin = NOW() WHERE id=:id";
         $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $user->id, PDO::PARAM_INT);
 
         $stmt->execute();
 
-        $_SESSION['id'] = $id;
-        $_SESSION['name'] = $username;
-        $_SESSION['role'] = $role;
+        $_SESSION['id'] = $user->id;
+        $_SESSION['name'] = $user->username;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['role'] = $user->role;
+        $_SESSION['connecte'] = 1;
     }
 }

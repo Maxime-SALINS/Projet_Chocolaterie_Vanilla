@@ -14,4 +14,8 @@ class AbstractController{
     public function redirect(string $path):void {
         header('Location:'. $path);
     }
+
+    public function connexionVerification():bool {
+        return !empty($_SESSION['connecte']);
+    }
 }
