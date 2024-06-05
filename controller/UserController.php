@@ -65,4 +65,23 @@ class UserController extends AbstractController {
             $this->redirect('/');
         }
     }
+
+    public function updateProfil()
+    {
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+            if (empty($_POST['username']) && empty($_POST['email']) && !empty($_POST['password'])){
+
+                $user = new User;
+                $user->setUsername($_SESSION['name']);
+                $user->setPassword($_POST['password']);
+
+                $username = $user->getUsername();
+                $password= $user->getPassword();
+
+                $userManager = new UserManager;
+                $userManager->updatePassword($password, $username);
+            }
+        }
+    }
 }

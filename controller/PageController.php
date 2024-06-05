@@ -67,7 +67,7 @@ class PageController extends AbstractController {
     public function dashboard()
     {
         if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
-            $this->redirect('/admin');
+            $this->redirect('/');
             exit();
         } else {
             $this->render('dashboard', [

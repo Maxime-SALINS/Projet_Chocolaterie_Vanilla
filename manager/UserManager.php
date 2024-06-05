@@ -43,4 +43,16 @@ class UserManager {
         $_SESSION['role'] = $user->role;
         $_SESSION['connecte'] = 1;
     }
+
+    public function updatePassword(string $password, string $username)
+    {
+        $pdo = Database::getPDO();
+        $sql = "UPDATE user SET password = :password WHERE username = :username";
+
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
 }
