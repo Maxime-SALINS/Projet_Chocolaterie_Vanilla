@@ -1,10 +1,19 @@
 <?php
 namespace App\controller;
 
+use App\model\Page;
+use App\manager\PageManager;
+
 class PageController extends AbstractController {
 
     public function index()
     {
+        $homePage = new PageManager;
+        $elements = $homePage->findElements('Accueil');
+        var_dump($elements);
+
+        $newPage = new Page($elements[0]->page_name,$elements[0]->content, $elements[10]->content, $elements[11]->content, $elements[12]->content, $elements[13]->content, $elements[14]->content, $elements[15]->content, null, $elements[1]->content, $elements[2]->content, $elements[3]->content, $elements[4]->content, $elements[5]->content, $elements[6]->content, $elements[7]->content, $elements[8]->content, $elements[9]->content);
+        var_dump($newPage);
         
         $this->render('home', [
             'title' => 'Page | Accueil',
