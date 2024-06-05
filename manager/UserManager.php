@@ -2,15 +2,13 @@
 namespace App\manager;
 
 use \PDO;
-use App\model\Database;
 
-class UserManager {
+class UserManager extends DatabaseManager{
 
     public function findUser(string $email, string $password):bool
     {
-        $pdo = Database::getPDO();
         $sql = "SELECT * FROM user WHERE email = :email";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -30,9 +28,8 @@ class UserManager {
 
     public function setUserSession($user)
     {
-        $pdo = Database::getPDO();
         $sql = "UPDATE user SET lastLogin = NOW() WHERE id=:id";
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindParam(':id', $user->id, PDO::PARAM_INT);
 
         $stmt->execute();
@@ -46,10 +43,9 @@ class UserManager {
 
     public function updatePassword(string $password, string $username)
     {
-        $pdo = Database::getPDO();
         $sql = "UPDATE user SET password = :password WHERE username = :username";
 
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
 
