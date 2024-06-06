@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
 require_once 'autoload.php';
 
 use App\controller\PageController;
@@ -7,9 +11,6 @@ use App\controller\UserController;
 $uri = $_SERVER['REQUEST_URI'];
 $Page = new PageController();
 
-if (session_status() === PHP_SESSION_NONE) {
-  session_start();
-}
 
 switch ($uri) {
   case '/contact':

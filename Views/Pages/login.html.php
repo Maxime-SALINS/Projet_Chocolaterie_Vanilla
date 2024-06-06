@@ -1,6 +1,6 @@
 <div class="container w-25 my-5">
     <form class="form-control" action="" method="post">
-        <h1 class="titre_principal text-uppercase text-center my-3"><?= $first_title ?></h1>
+        <h1 class="titre_principal text-uppercase text-center my-3"><?= $newPage->getFirstTitle()?></h1>
         <div class="contanier my-4">
             <input class="form-control" type="email" name="email" id="email" placeholder="Entrez votre email">
         </div>

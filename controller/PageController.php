@@ -46,9 +46,13 @@ class PageController extends AbstractController {
 
     public function product()
     {
+        $productPage = new PageManager;
+        $elements = $productPage->findElements('Produits');
+
+        $newPage = new Page($elements);
+
         $this->render('product-list', [
-            'title' => 'Page | Produits',
-            'first_title' => 'nos produits',
+            'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'name' => 'product'
         ]);
@@ -66,9 +70,14 @@ class PageController extends AbstractController {
 
     public function connection()
     {
+        $elements = [
+            array("page_name"=>"Connexion", "element_type"=>"h1", "element_position"=>1,"content"=>"connexion"),
+            array("page_name"=>"Connexion", "element_type"=>"meta description", "element_position"=>1,"content"=>"connexion")
+        ];
+        $newPage = new Page($elements);
+
         $this->render('login', [
-            'title' => 'Page | Connexion',
-            'first_title' => 'connexion',
+            'newPage'=> $newPage,
             'title_default' => 'Page | Chocolaterie',
             'name' => 'login'
         ]);
@@ -80,8 +89,13 @@ class PageController extends AbstractController {
             $this->redirect('/');
             exit();
         } else {
+            $elements = [
+                array("page_name"=>"Dashboard", "element_type"=>"h1", "element_position"=>1,"content"=>"Dashboard"),
+                array("page_name"=>"Dashboard", "element_type"=>"meta description", "element_position"=>1,"content"=>"Dashboard")
+            ];
+            $newPage = new Page($elements);
             $this->render('dashboard', [
-                'title' => 'Dashboard',
+                'newPage'=> $newPage,
                 'title_default' => 'Page | Chocolaterie',
                 'name' => 'dashboard'
             ]);

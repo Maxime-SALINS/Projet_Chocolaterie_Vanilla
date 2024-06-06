@@ -3,6 +3,7 @@ namespace App\controller;
 
 use App\model\User;
 use App\manager\UserManager;
+use App\Model\Page;
 
 class UserController extends AbstractController {
 
@@ -31,9 +32,13 @@ class UserController extends AbstractController {
                     }
                 } else {
                     $error = "Nom d'utilisateur ou mot de passe invalide";
+                    $elements = [
+                        array("page_name"=>"Connexion", "element_type"=>"h1", "element_position"=>1,"content"=>"connexion"),
+                        array("page_name"=>"Connexion", "element_type"=>"meta description", "element_position"=>1,"content"=>"connexion")
+                    ];
+                    $newPage = new Page($elements);
                     $this->render('login', [
-                        'title' => 'Page | Connexion',
-                        'first_title' => 'connexion',
+                        'newPage'=> $newPage,
                         'title_default' => 'Page | Chocolaterie',
                         'name' => 'login',
                         'error' => $error
@@ -41,9 +46,13 @@ class UserController extends AbstractController {
                 }
             } else {
                 $msg_error = "*champs obligatoire";
+                $elements = [
+                    array("page_name"=>"Connexion", "element_type"=>"h1", "element_position"=>1,"content"=>"connexion"),
+                    array("page_name"=>"Connexion", "element_type"=>"meta description", "element_position"=>1,"content"=>"connexion")
+                ];
+                $newPage = new Page($elements);
                 $this->render('login', [
-                    'title' => 'Page | Connexion',
-                    'first_title' => 'connexion',
+                    'newPage'=> $newPage,
                     'title_default' => 'Page | Chocolaterie',
                     'name' => 'login',
                     'msg_error' => $msg_error
