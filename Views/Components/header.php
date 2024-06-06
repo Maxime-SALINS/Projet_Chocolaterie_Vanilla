@@ -4,7 +4,7 @@
             <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
         </a>
         <section class="text-center">
-            <h1 class="titre_principal text-uppercase my-3"><?= !empty($newPage->getFristitle()) ? $newPage->getFristitle() : $title; ?></h1>
+            <h1 class="titre_principal text-uppercase my-3"><?= !empty($newPage->getFirstTitle()) ? $newPage->getFirstTitle() : $title; ?></h1>
             <nav class="navbar navbar-expand-lg d-none d-lg-block p-0">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
