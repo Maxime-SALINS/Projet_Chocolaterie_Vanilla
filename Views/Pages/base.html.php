@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= $newPage->getMeta();?>">
+    <meta name="description" content="<?= !empty($newPage->getMeta()) ? $newPage->getMeta() : 'Chocolaterie la rouvière';?>">
     <link rel="shortcut icon" href="../../assets/images/favicon/logo-chocolaterie.ico" type="image/x-icon">
     <title><?= !empty($newPage->getTitle()) ? 'Page | ' . $newPage->getTitle() : $title_default ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
