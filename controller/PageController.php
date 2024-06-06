@@ -32,9 +32,13 @@ class PageController extends AbstractController {
 
     public function story()
     {
+        $storyPage= new PageManager;
+        $elements= $storyPage->findElements('Histoire');
+
+        $newPage = new Page($elements);
+        
         $this->render('story', [
-            'title' => 'Page | Histoire',
-            'first_title' => 'notre histoire',
+            'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'name' => 'story'
         ]);
