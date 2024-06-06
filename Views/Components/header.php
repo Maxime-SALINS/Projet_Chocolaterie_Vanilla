@@ -3,8 +3,8 @@
         <a class="navbar-brand" href="/">
             <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
         </a>
-        <div class="text-center">
-            <h1 class="titre_principal text-uppercase my-3"><?= $first_title ?></h1>
+        <section class="text-center">
+            <h1 class="titre_principal text-uppercase my-3"><?= $newPage->getFristitle(); ?></h1>
             <nav class="navbar navbar-expand-lg d-none d-lg-block p-0">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </nav>
-        </div>
+        </section>
         <div class="header-contact rounded-bottom-1 nav-item mx-4 px-4 pb-1 d-none d-md-none d-lg-block d-xl-block">
             <a class="lien-contact text-decoration-none text-center" href="contact" target="_blank">
                 contact
