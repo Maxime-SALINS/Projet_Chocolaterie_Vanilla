@@ -4,7 +4,7 @@
             <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
         </a>
         <section class="text-center">
-            <h1 class="titre_principal text-uppercase my-3"><?= !empty($newPage->getFirstTitle()) ? $newPage->getFirstTitle() : $title; ?></h1>
+            <h1 class="titre_principal text-uppercase my-3"><?= isset($newPage) ? $newPage->getFirstTitle() : $first_title; ?></h1>
             <nav class="navbar navbar-expand-lg d-none d-lg-block p-0">
                 <div class="container-fluid">
                     <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
@@ -17,13 +17,13 @@
                                     Produits
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="lien-drop dropdown-item text-uppercase" href="produits">Chocolat</a></li>
-                                    <li><a class="lien-drop dropdown-item text-uppercase" href="404">Café & Thé</a></li>
-                                    <li><a class="lien-drop dropdown-item text-uppercase" href="404">Glace</a></li>
+                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/produits">Chocolat</a></li>
+                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/404">Café & Thé</a></li>
+                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/404">Glace</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-5">
-                                <a class="nav-link nav-link-ltr text-uppercase" href="histoire">Histoire</a>
+                                <a class="nav-link nav-link-ltr text-uppercase" href="/histoire">Histoire</a>
                             </li>
                             <li class="nav-item mx-5 d-block d-lg-none d-xl-none">
                                 <a class="contact-responsive nav-link-ltr text-uppercase text-decoration-none" href="contact">contact</a>

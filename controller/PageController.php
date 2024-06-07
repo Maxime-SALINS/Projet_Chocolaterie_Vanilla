@@ -23,7 +23,7 @@ class PageController extends AbstractController {
     public function contact()
     {
         $this->render('contact', [
-            'title' => 'Page | Contact',
+            'title' => 'Contact',
             'first_title' => 'contact',
             'title_default' => 'Page | Chocolaterie',
             'name' => 'contact'
@@ -63,22 +63,15 @@ class PageController extends AbstractController {
         $this->render('404', [
             'title' => 'Page | Erreur 404',
             'first_title' => 'erreur 404',
-            'title_default' => 'Page | Chocolaterie',
             'name' => 'error'
         ]);
     }
 
     public function connection()
     {
-        $elements = [
-            array("page_name"=>"Connexion", "element_type"=>"h1", "element_position"=>1,"content"=>"connexion"),
-            array("page_name"=>"Connexion", "element_type"=>"meta description", "element_position"=>1,"content"=>"connexion")
-        ];
-        $newPage = new Page($elements);
-
         $this->render('login', [
-            'newPage'=> $newPage,
-            'title_default' => 'Page | Chocolaterie',
+            'title' => 'Connexion',
+            'first_title' => 'connexion',
             'name' => 'login'
         ]);
     }
@@ -89,14 +82,9 @@ class PageController extends AbstractController {
             $this->redirect('/');
             exit();
         } else {
-            $elements = [
-                array("page_name"=>"Dashboard", "element_type"=>"h1", "element_position"=>1,"content"=>"Dashboard"),
-                array("page_name"=>"Dashboard", "element_type"=>"meta description", "element_position"=>1,"content"=>"Dashboard")
-            ];
-            $newPage = new Page($elements);
             $this->render('dashboard', [
-                'newPage'=> $newPage,
-                'title_default' => 'Page | Chocolaterie',
+                'title' => 'Dashboard',
+                'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard'
             ]);
         }

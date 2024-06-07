@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="<?= !empty($newPage->getMetaDescription()) ? $newPage->getMetaDescription() : 'Chocolaterie la rouvière';?>">
+    <meta name="description" content="<?= isset($newPage) ? $newPage->getMetaDescription() : 'Chocolaterie la rouvière';?>">
     <link rel="shortcut icon" href="../../assets/images/favicon/logo-chocolaterie.ico" type="image/x-icon">
-    <title><?= !empty($newPage->getTitle()) ? 'Page | ' . $newPage->getTitle() : $title_default ?></title>
+    <title><?= isset($newPage) ? 'Page | ' . $newPage->getTitle() : 'Page | '. $title ?></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lustria&display=swap" rel="stylesheet">
