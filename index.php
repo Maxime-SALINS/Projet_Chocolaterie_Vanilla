@@ -31,7 +31,7 @@ switch ($uri) {
     $Page->connection();
     break;
 
-  case '/dasboard':
+  case '/dashboard':
     $Page->dashboard();
     break;
   
