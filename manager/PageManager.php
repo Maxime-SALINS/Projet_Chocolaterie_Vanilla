@@ -21,4 +21,14 @@ class PageManager extends DatabaseManager {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function findAllPage():array
+    {
+        $sql = "SELECT * FROM pages";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

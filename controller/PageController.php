@@ -82,10 +82,15 @@ class PageController extends AbstractController {
             $this->redirect('/');
             exit();
         } else {
+            $dashboardPage = new PageManager;
+
+            $elements = $dashboardPage->findAllPage();
+
             $this->render($path, [
                 'title' => 'Dashboard',
                 'first_title' => 'Dashboard administrateur',
-                'name' => 'dashboard'
+                'name' => 'dashboard',
+                'elements' => $elements
             ], 'dashboard','Components/dashboard/');
         }
     }

@@ -56,8 +56,13 @@ switch ($uri) {
     $Page->dashboard($path);
     break;
   
-  case '/dashboard/contenu':
-    $path = 'content-dashboard';
+  case '/dashboard/contenu/?page_name=Accueil':
+    $path = 'accueil-content-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/contenu/?page_name=Histoire':
+    $path = 'story-content-dashboard';
     $Page->dashboard($path);
     break;
   

@@ -8,22 +8,21 @@
                     Accueil dashboard
                 </a>
             </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/profil">
-                    <i class="bi bi-person-fill-gear"></i>
-                    Profil administrateur
+            <li class="nav-item dropdown my-2">
+                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-file-post"></i>
+                    Gestion contenu
                 </a>
-            </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/statistique">
-                    <i class="bi bi-graph-up"></i>
-                    Statistique du site
-                </a>
+                <ul class="dropdown-menu">
+                    <?php foreach ($elements as $element):?>
+                        <li><a class="dropdown-item" href="/dashboard/contenu/?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a></li>
+                    <?php endforeach; ?>
+                </ul>
             </li>
             <li class="nav-item my-2">
                 <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/referencement">
                     <i class="bi bi-search-heart"></i>
-                    Référencement (SEO)
+                    Référencement
                 </a>
             </li>
             <li class="nav-item my-2">
@@ -33,15 +32,22 @@
                 </a>
             </li>
             <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/contenu">
-                    <i class="bi bi-file-post"></i>
-                    Gestion contenu
+                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/statistique">
+                    <i class="bi bi-graph-up"></i>
+                    Statistique du site
                 </a>
             </li>
             <li class="nav-item my-2">
                 <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/newsletter">
                     <i class="bi bi-newspaper"></i>
                     Gestion Newsletter
+                </a>
+            </li>
+            <hr>
+            <li class="nav-item my-2">
+                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/profil">
+                    <i class="bi bi-person-fill-gear"></i>
+                    Profil admin
                 </a>
             </li>
         </ul>
