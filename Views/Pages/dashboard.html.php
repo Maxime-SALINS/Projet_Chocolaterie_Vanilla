@@ -1,104 +1,30 @@
-<header class="d-flex align-item-center justify-content-between bg-primary text-white">
-    <div class="container text-center">
-        <h1 class="my-3"><?= $first_title ?></h1>
-    </div>
-    <div class="d-flex align-item-center justify-content-center">
-        <p class="mx-2">Bienvenue <?= $_SESSION['name'] ?> !</p>
-    </div>
-</header>
-<main class="row">
-    <aside class="col-2 text-center bg-primary-subtle p-3">
-        <h2 class="text-uppercase text-decoration-underline fs-5">panel administrateur</h2>
-        <div class="container-fluid">
-            <ul class="nav flex-column">
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-person-fill-gear"></i>
-                        Profil administrateur
-                    </a>
-                </li>
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-graph-up"></i>
-                        Statistique du site
-                    </a>
-                </li>
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-search-heart"></i>
-                        Référencement (SEO)
-                    </a>
-                </li>
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-cookie"></i>
-                        Gestion produits
-                    </a>
-                </li>
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-file-post"></i>
-                        Gestion contenu
-                    </a>
-                </li>
-                <li class="nav-item my-2">
-                    <a class="nav-link d-flex align-items-center gap-2" href="">
-                        <i class="bi bi-newspaper"></i>
-                        Gestion Newsletter
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="container-fluid">
-            <a class="btn btn-danger my-3" href="/logout">Déconnexion</a>
-        </div>
-    </aside>
-    <section class="col-10 bg-body-secondary p-3">
-        <h2 class="text-uppercase text-center">Profil</h2>
-        <div class="row">
-            <section class="col-4 card mx-auto">
-                <h3 class="text-center my-3">Informations du profil</h3>
-                <ul class="container-fluid">
-                    <li class="list-group-item my-2">Prénom : <?= $_SESSION['name'] ?></li>
-                    <li class="list-group-item my-2">Email : <?= $_SESSION['email'] ?></li>
-                    <li class="list-group-item my-2">Rôle : <?= $_SESSION['role'] ?> </li>
-                </ul>
-            </section>
-            <section class="col-4 card mx-auto text-center">
-                <h3 class="text-center my-3">Modification du profil</h3>
-                <form action="" method="post">
-                    <div class="container my-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <label for="FormControlInputEmail" class="form-label mx-5">Prénom</label>
-                            <button class="btn btn-success" type="button" id="btn-name">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </div>
-                        <input class="form-control d-none my-2" type="text" name="username" id="username" placeholder="Entrez votre prénom">
-                    </div>
-                    <div class="container my-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <label for="FormControlInputEmail" class="form-label mx-5">Email</label>
-                            <button class="btn btn-success" type="button" id="btn-email">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </div>
-                        <input class="form-control d-none my-2" type="email" name="email" id="email" placeholder="Entrez votre nouvel email">
-                    </div>
-                    <div class="container my-4">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <label for="FormControlInputpassword" class="form-label mx-5">Mot de passe</label>
-                            <button class="btn btn-success" type="button" id="btn-password">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                        </div>
-                        <input class="form-control d-none my-2" type="password" name="password" id="password" placeholder="Entrez votre nouveau mot de passe">
-                    </div>
-                    <div class="container my-3">
-                        <button type="submit" class="btn btn-primary">Valider</button>
-                    </div>
-                </form>
-            </section>
-        </div>
-    </section>
-</main>
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../assets/images/favicon/logo-chocolaterie.ico" type="image/x-icon">
+    <title><?= 'Page | ' . $title ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lustria&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/Components/dashboard/headerDashboard.html.php';?>
+    <main class="row">
+        <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/Components/dashboard/menuDashboard.html.php';?>
+        <section class="col-10 bg-body-secondary p-3">
+            <?= $content ?>
+        </section>
+    </main>
+    <script src="../../assets/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/9f06e862eb.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

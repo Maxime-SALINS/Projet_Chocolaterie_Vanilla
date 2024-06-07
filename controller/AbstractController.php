@@ -2,13 +2,13 @@
 namespace App\controller;
 
 class AbstractController{
-    static public function render(string $path, array $data=[]):void 
+    static public function render(string $path, array $data=[], string $path_base = "base", string $file = 'Pages/'):void 
     {
         extract($data);
         ob_start();
-        require_once 'views/Pages/'.$path.'.html.php';
+        require_once 'views/'.$file.$path.'.html.php';
         $content = ob_get_clean();
-        require_once 'views/Pages/base.html.php';
+        require_once 'views/Pages/'.$path_base.'.html.php';
     }
 
     public function redirect(string $path):void {

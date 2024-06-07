@@ -1,0 +1,1 @@
+<h2 class="text-uppercase text-center">statistiques du site</h2>

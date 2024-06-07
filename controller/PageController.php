@@ -76,17 +76,17 @@ class PageController extends AbstractController {
         ]);
     }
 
-    public function dashboard()
+    public function dashboard(string $path)
     {
         if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
             $this->redirect('/');
             exit();
         } else {
-            $this->render('dashboard', [
+            $this->render($path, [
                 'title' => 'Dashboard',
                 'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard'
-            ]);
+            ], 'dashboard','Components/dashboard/');
         }
     }
 }

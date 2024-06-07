@@ -32,7 +32,38 @@ switch ($uri) {
     break;
 
   case '/dashboard':
-    $Page->dashboard();
+    $path = 'home-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/profil':
+    $path = 'profil-dashboard';
+    $Page->dashboard($path);
+    break;
+
+  case '/dashboard/statistique':
+    $path = 'stat-dashboard';
+    $Page->dashboard($path);
+    break;
+
+  case '/dashboard/referencement':
+    $path = 'seo-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/produits':
+    $path = 'product-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/contenu':
+    $path = 'content-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/newsletter':
+    $path = 'newsletter-dashboard';
+    $Page->dashboard($path);
     break;
   
   case '/logout':
