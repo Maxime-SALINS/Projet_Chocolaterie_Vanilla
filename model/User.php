@@ -3,9 +3,20 @@ namespace App\model;
 
 class User {
 
+    private $id;
     private $username;
     private $email;
     private $password;
+
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId():int
+    {
+        return $this->id;
+    }
 
     public function setUsername(string $name)
     {

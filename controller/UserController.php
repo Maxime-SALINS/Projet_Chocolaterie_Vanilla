@@ -79,6 +79,36 @@ class UserController extends AbstractController {
 
                 $userManager = new UserManager;
                 $userManager->updatePassword($password, $username);
+
+            } elseif (empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
+
+                $user = new User;
+                $user->setUsername($_SESSION['name']);
+                $user->setEmail($_POST['email']);
+                $user->setPassword($_POST['password']);
+
+                $username = $user->getUsername();
+                $email = $user->getEmail();
+                $password = $user->getPassword();
+
+                $userManager = new UserManager;
+                $userManager->updatePasswordAndEmail($email, $password, $username);
+
+            } elseif (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
+
+                $user = new User;
+                $user->setId($_SESSION['id']);
+                $user->setUsername($_POST['username']);
+                $user->setEmail($_POST['email']);
+                $user->setPassword($_POST['password']);
+
+                $id = $user->getId();
+                $username = $user->getUsername();
+                $email = $user->getEmail();
+                $password = $user->getPassword();
+
+                $userManager = new UserManager;
+                $userManager->updateAllInfo($email, $password, $username, $id);
             }
         }
     }

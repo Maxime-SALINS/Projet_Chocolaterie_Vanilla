@@ -51,4 +51,29 @@ class UserManager extends DatabaseManager{
 
         $stmt->execute();
     }
+
+    public function updatePasswordAndEmail(string $email, string $password, string $username)
+    {
+        $sql = "UPDATE user SET email = :email, password = :password WHERE username = :username";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+
+        $stmt->execute();
+    }
+
+    public function updateAllInfo(string $email, string $password, string $username, int $id)
+    {
+        $sql = "UPDATE user SET username = :username, email = :email, password = :password WHERE id = :id";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+    }
 }
