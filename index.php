@@ -66,6 +66,21 @@ switch ($uri) {
     $Page->dashboard($path);
     break;
   
+  case '/dashboard/contenu/?page_name=Produits':
+    $path = 'product-content-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/contenu/?page_name=Contact':
+    $path = 'contact-content-dashboard';
+    $Page->dashboard($path);
+    break;
+  
+  case '/dashboard/contenu/?page_name=Erreur 404':
+    $path = '404-content-dashboard';
+    $Page->dashboard($path);
+    break;
+
   case '/dashboard/newsletter':
     $path = 'newsletter-dashboard';
     $Page->dashboard($path);
