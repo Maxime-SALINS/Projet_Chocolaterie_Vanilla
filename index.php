@@ -7,6 +7,7 @@ require_once 'autoload.php';
 
 use App\controller\PageController;
 use App\controller\UserController;
+use App\controller\NewsletterController;
 
 $uri = $_SERVER['REQUEST_URI'];
 $Page = new PageController();
@@ -99,5 +100,7 @@ switch ($uri) {
   
   default:
     $Page->index();
+    $newSub = new NewsletterController;
+    $newSub->newSubscriber();
     break;
 }
