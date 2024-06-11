@@ -3,6 +3,7 @@ namespace App\controller;
 
 use App\model\Page;
 use App\manager\PageManager;
+use App\controller\NewsletterController;
 
 class PageController extends AbstractController {
 
@@ -13,11 +14,45 @@ class PageController extends AbstractController {
 
         $newPage = new Page($elements);
         
-        $this->render('home', [
-            'newPage' => $newPage,
-            'title_default' => 'Page | Chocolaterie',
-            'name' => 'index'
-        ]);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $newSub = new NewsletterController;
+            if($newSub->newSubscriber()){
+              $msg_success = "Vos êtes abonné à la Newsletter";
+            } elseif (!$newSub->newSubscriber() && !empty($_POST['useremail_news'])) {
+              $msg_error = "Vous avez déjà souscrit un abonnement";
+            } else {
+              $error = "Vous devez remplir ce champ";
+            }
+        }
+
+        if(!empty($msg_success)) {
+            $this->render('home', [
+                'newPage' => $newPage,
+                'title_default' => 'Page | Chocolaterie',
+                'msg_success' => $msg_success,
+                'name' => 'index'
+            ]);
+        } elseif (!empty($msg_error)) {
+            $this->render('home', [
+                'newPage' => $newPage,
+                'title_default' => 'Page | Chocolaterie',
+                'msg_error' => $msg_error,
+                'name' => 'index'
+            ]);
+        } elseif (!empty($error)){
+            $this->render('home', [
+                'newPage' => $newPage,
+                'title_default' => 'Page | Chocolaterie',
+                'error' => $error,
+                'name' => 'index'
+            ]);
+        } else {
+            $this->render('home', [
+                'newPage' => $newPage,
+                'title_default' => 'Page | Chocolaterie',
+                'name' => 'index'
+            ]);
+        }
     }
 
     public function contact()
@@ -83,14 +118,17 @@ class PageController extends AbstractController {
             exit();
         } else {
             $dashboardPage = new PageManager;
-
             $elements = $dashboardPage->findAllPage();
+
+            $newletter = new NewsletterController;
+            $news_elements = $newletter->viewAll();
 
             $this->render($path, [
                 'title' => 'Dashboard',
                 'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard',
-                'elements' => $elements
+                'elements' => $elements,
+                'news_elements' => $news_elements,
             ], 'dashboard','Components/dashboard/');
         }
     }

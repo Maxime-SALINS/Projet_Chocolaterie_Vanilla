@@ -4,6 +4,21 @@
         <form class="row container-fluid text-center" action="" method="post">
             <div class="col-auto my-1">
                 <input class="form-control" type="email" name="useremail_news" id="useremail_news" placeholder="Entrez votre email">
+                <?php if (!empty($msg_success)) : ?>
+                    <div class="alert alert-success">
+                        <?= $msg_success ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($msg_error)) : ?>
+                    <div class="alert alert-danger">
+                        <?= $msg_error ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($error)) : ?>
+                    <div class="alert alert-danger">
+                        <?= $error ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="col-auto text-start my-1">
                 <button class="btn btn-footer text-white" type="submit">Envoyer</button>
@@ -32,12 +47,12 @@
             <section class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline"">Infomations</h3>
                     <ul class=" nav flex-column">
-                        <li>
-                            <a class="lien-footer nav-link" href="#">Mention légales</a>
-                        </li>
-                        <li>
-                            <a class="lien-footer nav-link" href="#">Cookies</a>
-                        </li>
+                    <li>
+                        <a class="lien-footer nav-link" href="#">Mention légales</a>
+                    </li>
+                    <li>
+                        <a class="lien-footer nav-link" href="#">Cookies</a>
+                    </li>
                     </ul>
                     <h4 class="titre-footer">Horaires de la boutique :</h4>
                     <ul class="list-unstyled">

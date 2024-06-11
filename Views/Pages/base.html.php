@@ -22,7 +22,7 @@
     }
     ?>
     <?= $content ?>
-    <?php     
+    <?php
     if ($name !== "login" && $name !== "dashboard") {
         require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/footer.php';
     }

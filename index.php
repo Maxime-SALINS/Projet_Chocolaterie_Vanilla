@@ -88,7 +88,12 @@ switch ($uri) {
     $path = 'newsletter-dashboard';
     $Page->dashboard($path);
     break;
-  
+
+  case '/dashboard/newsletter/delete/?email='.$_GET['email'].'':
+    $deleteSub = new NewsletterController;
+    $deleteSub->deleteSubscriber($_GET['email']);
+    break;
+    
   case '/logout':
     $user = new UserController;
     $user->logout();
@@ -100,7 +105,5 @@ switch ($uri) {
   
   default:
     $Page->index();
-    $newSub = new NewsletterController;
-    $newSub->newSubscriber();
     break;
 }

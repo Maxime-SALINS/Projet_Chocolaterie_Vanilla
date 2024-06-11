@@ -4,7 +4,7 @@ namespace App\controller;
 use App\model\NewsletterModel;
 use App\manager\NewsletterManager;
 
-class NewsletterController {
+class NewsletterController extends AbstractController{
 
     public function viewAll():array
     {
@@ -25,17 +25,15 @@ class NewsletterController {
                 $subEmail = $newSubscriber->getUserEmail();
 
                 $newSQL = new NewsletterManager;
-                if ($newSQL->uplaodSubscriber($subEmail)) {
-                    $msg_success = "Vos êtes abonné à la Newsletter";
-                    return $msg_success;
+
+                if($newSQL->findEmail($subEmail)) {
+                    $newSQL->uplaodSubscriber($subEmail);
+                    return true;
                 } else {
-                    $msg_error = "Votre demande n'a pas été exécuté";
-                    return $msg_error;
+                    return false;
                 }
-    
             } else {
-                $error = "Vous devez remplir ce champ";
-                return $error;
+                return false;
             }
         }
     }
@@ -48,6 +46,7 @@ class NewsletterController {
 
         $newSQL = new NewsletterManager;
         $newSQL->delete($subEmail);
-    }
 
+        $this->redirect('/dashboard/newsletter');
+    }
 }

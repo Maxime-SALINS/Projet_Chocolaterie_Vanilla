@@ -16,13 +16,30 @@ class NewsletterManager extends DatabaseManager {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function uplaodSubscriber(string $email):bool
+    public function findEmail(string $email):bool
     {
-        $sql ="INSERT INTO newsletter (email) VALUES (email=:email)";
+        $sql ="SELECT * FROM newsletter WHERE email=:email";
 
         $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
+
+        $findEmail = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($findEmail) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function uplaodSubscriber(string $email):bool
+    {
+        $newData = array($email);
+
+        $sql ="INSERT INTO newsletter(`email`) VALUES (?)";
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->execute($newData);
 
         return true;
     }
