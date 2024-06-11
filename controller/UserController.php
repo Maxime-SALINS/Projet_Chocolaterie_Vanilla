@@ -17,10 +17,8 @@ class UserController extends AbstractController {
 
                 $user = new User;
                 $user->setEmail($email);
-                $user->setPassword($password);
 
                 $email = $user->getEmail();
-                $password = $user->getPassword();
 
                 $userManager = new UserManager;
                 

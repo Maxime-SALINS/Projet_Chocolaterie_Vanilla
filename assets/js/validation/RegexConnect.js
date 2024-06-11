@@ -42,7 +42,7 @@ inputEmail.addEventListener("input", (e)=> {
 });
 
 inputPassword.addEventListener("input", (e)=> {
-    addClass(inputPassword, EmailRegex,  e.target.value);
+    addClass(inputPassword, PasswordRegex,  e.target.value);
     if (inputPassword.classList.contains("is-valid")) {
         passwordValid = true;
     } else {

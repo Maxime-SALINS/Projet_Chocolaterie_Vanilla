@@ -39,6 +39,8 @@ switch ($uri) {
   case '/dashboard/profil':
     $path = 'profil-dashboard';
     $Page->dashboard($path);
+    $user = new UserController;
+    $user->updateProfil();
     break;
 
   case '/dashboard/statistique':
