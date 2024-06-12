@@ -31,4 +31,33 @@ class PageManager extends DatabaseManager {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function findMetaDescription():array
+    {
+        $sql = "SELECT page_name, e.element_id, e.element_type, c.content
+        FROM `pages` p 
+        INNER JOIN `elements` e 
+        ON p.page_id = e.page_id 
+        JOIN `content` c 
+        ON e.element_id = c.element_id
+        WHERE e.element_type = 'meta description'";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function updateContent(string $text, int $id):bool
+    {
+        $sql = "UPDATE content SET content=:content WHERE element_id=:element_id";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->bindValue(':content', $text, PDO::PARAM_STR);
+        $stmt->bindValue(':element_id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return true;
+    }
 }

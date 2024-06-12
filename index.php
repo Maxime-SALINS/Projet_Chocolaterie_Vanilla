@@ -34,62 +34,79 @@ switch ($uri) {
 
   case '/dashboard':
     $path = 'home-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/profil':
     $path = 'profil-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     $user = new UserController;
     $user->updateProfil();
     break;
 
   case '/dashboard/statistique':
     $path = 'stat-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path,$file);
     break;
 
   case '/dashboard/referencement':
     $path = 'seo-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
+  case '/dashboard/referencement/modification?id='.(isset($_GET['id']) ? $_GET['id'] : '' ):
+    $path = 'update-seo';
+    $file = "Components/dashboard/update/";
+    $Page->dashboard($path, $file);
+    break;
+
   case '/dashboard/produits':
     $path = 'product-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Accueil':
     $path = 'accueil-content-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Histoire':
     $path = 'story-content-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Produits':
     $path = 'product-content-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Contact':
     $path = 'contact-content-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Erreur 404':
     $path = '404-content-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
 
   case '/dashboard/newsletter':
     $path = 'newsletter-dashboard';
-    $Page->dashboard($path);
+    $file = "Components/dashboard/";
+    $Page->dashboard($path, $file);
     break;
 
-  case '/dashboard/newsletter/delete/?email='.$_GET['email'].'':
+  case '/dashboard/newsletter/delete?email='.(isset($_GET['email']) ? $_GET['email'] : '' ):
     $deleteSub = new NewsletterController;
     $deleteSub->deleteSubscriber($_GET['email']);
     break;

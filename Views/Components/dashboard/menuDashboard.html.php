@@ -1,4 +1,4 @@
-<aside class="col-2 text-center bg-primary-subtle p-3">
+<aside class="col-2 text-center bg-primary-subtle p-3 menu_style">
     <h2 class="text-uppercase text-decoration-underline fs-5">panel administrateur</h2>
     <div class="container-fluid">
         <ul class="nav flex-column">

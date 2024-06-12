@@ -111,7 +111,7 @@ class PageController extends AbstractController {
         ]);
     }
 
-    public function dashboard(string $path)
+    public function dashboard(string $path, string $file)
     {
         if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
             $this->redirect('/');
@@ -119,9 +119,14 @@ class PageController extends AbstractController {
         } else {
             $dashboardPage = new PageManager;
             $elements = $dashboardPage->findAllPage();
+            $seo_elements = $dashboardPage->findMetaDescription();
 
             $newletter = new NewsletterController;
             $news_elements = $newletter->viewAll();
+
+            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $this->updateMetaDescription();
+            }
 
             $this->render($path, [
                 'title' => 'Dashboard',
@@ -129,7 +134,20 @@ class PageController extends AbstractController {
                 'name' => 'dashboard',
                 'elements' => $elements,
                 'news_elements' => $news_elements,
-            ], 'dashboard','Components/dashboard/');
+                'seo_elements'=>$seo_elements,
+            ], 'dashboard',$file);
+        }
+    }
+
+    public function updateMetaDescription(){
+
+        if (!empty($_POST['meta_description'])){
+            $newMeta = htmlspecialchars($_POST['meta_description']);
+            $id = $_GET['id'];
+            $newSQL = new PageManager;
+            if($newSQL->updateContent($newMeta, $id)){
+                $this->redirect('/dashboard/referencement');
+            }
         }
     }
 }
