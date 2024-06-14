@@ -7,7 +7,7 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="<?= $newPage->getImage(1);?>" class="d-block w-100" alt="<?= $newPage->getAlt(1); ?>">
+      <img src="<?= $newPage->getImage(1); ?>" class="d-block w-100" alt="<?= $newPage->getAlt(1); ?>">
     </div>
     <div class="carousel-item">
       <img src="<?= $newPage->getImage(2); ?>" class="d-block w-100" alt="<?= $newPage->getAlt(2); ?>">
@@ -28,24 +28,24 @@
 
 <!---- Section product ---->
 <section class="container-fluid text-center my-5">
-    <h2 class="titre-secondary text-uppercase my-4"><?= $newPage->getSecondTitle(1); ?></h2>
-    <div class="row">
-        <div class="col-12 col-md-4">
-            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(1); ?></h3>
-            <img class="card-img-top rounded" src="<?= $newPage->getImage(4); ?>" alt="<?= $newPage->getAlt(4); ?>">
-            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
-        </div>
-        <div class="col-12 col-md-4">
-            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(2); ?></h3>
-            <img class="card-img-top rounded" src="<?= $newPage->getImage(5); ?>" alt="<?= $newPage->getAlt(5); ?>">
-            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
-        </div>
-        <div class="col-12 col-md-4">
-            <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(3); ?></h3>
-            <img class="card-img-top rounded" src="<?= $newPage->getImage(6); ?>" alt="<?= $newPage->getAlt(6); ?>">
-            <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
-        </div>
+  <h2 class="titre-secondary text-uppercase my-4"><?= $newPage->getSecondTitle(1); ?></h2>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(1); ?></h3>
+      <img class="card-img-top rounded" src="<?= $newPage->getImage(4); ?>" alt="<?= $newPage->getAlt(4); ?>">
+      <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
     </div>
+    <div class="col-12 col-md-4">
+      <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(2); ?></h3>
+      <img class="card-img-top rounded" src="<?= $newPage->getImage(5); ?>" alt="<?= $newPage->getAlt(5); ?>">
+      <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
+    </div>
+    <div class="col-12 col-md-4">
+      <h3 class="titre-tertiary text-uppercase text-decoration-underline my-3"><?= $newPage->getThirdTitle(3); ?></h3>
+      <img class="card-img-top rounded" src="<?= $newPage->getImage(6); ?>" alt="<?= $newPage->getAlt(6); ?>">
+      <a class="btn btn-product text-white my-3" href="/produits">En savoir plus</a>
+    </div>
+  </div>
 </section>
 
 <!---- Carousel n°2 ---->
@@ -90,10 +90,18 @@
 
 <!---- Carousel n°3: avis google ---->
 <section class="container-fluid">
-    <h2 class="titre-secondary text-uppercase text-center"><?= $newPage->getSecondTitle(2); ?></h2>
+  <h2 class="titre-secondary text-uppercase text-center"><?= $newPage->getSecondTitle(2); ?></h2>
+  <div id="opinions"></div>
 </section>
 
 <!---- Carousel n°3: avis google ---->
-<section class="container-fluid">
-    <h2 class="titre-secondary text-uppercase text-center"><?= $newPage->getSecondTitle(3); ?></h2>
+<section class="container-fluid my-5">
+  <h2 class="titre-secondary text-uppercase text-center"><?= $newPage->getSecondTitle(3); ?></h2>
+  <div class="container-fluid my-2">
+    <a class="d-flex align-items-center gap-2" href="https://www.instagram.com/chocolaterielarouviere/" target="_blank" rel="noopener noreferrer">
+      <i class="bi bi-instagram"></i>
+      @chocolaterielarouviere
+    </a>
+  </div>
+  <div class="container-fluid px-4" id="reseaux"></div>
 </section>
