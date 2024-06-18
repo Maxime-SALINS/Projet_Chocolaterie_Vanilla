@@ -4,6 +4,7 @@ namespace App\controller;
 use App\model\Page;
 use App\manager\PageManager;
 use App\controller\NewsletterController;
+use App\controller\ProductController;
 
 class PageController extends AbstractController {
 

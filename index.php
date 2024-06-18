@@ -8,9 +8,11 @@ require_once 'autoload.php';
 use App\controller\PageController;
 use App\controller\UserController;
 use App\controller\NewsletterController;
+use App\controller\ProductController;
 
 $uri = $_SERVER['REQUEST_URI'];
 $Page = new PageController();
+$newProduct = new ProductController;
 
 
 switch ($uri) {
@@ -67,7 +69,19 @@ switch ($uri) {
   case '/dashboard/produits':
     $path = 'product-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $newProduct->viewProductDash($path, $file);
+    break;
+  
+  case '/dashboard/produit/ajout-produit':
+    $path = 'create-product';
+    $file = "Components/dashboard/create/";
+    $newProduct->createProduct($path, $file);
+    break;
+
+  case '/dashboard/produit/modification?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
+    $path = 'update-product';
+    $file = "Components/dashboard/update/";
+    $newProduct->updateProduct($path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Accueil':
