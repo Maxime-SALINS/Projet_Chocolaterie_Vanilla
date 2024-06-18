@@ -30,7 +30,7 @@
         <div class="col-12 col-md-4 mb-3">
             <section class="container-fluid text-center">
                 <h3 class="titre-footer text-uppercase text-decoration-underline"">Sommaire</h3>
-                <ul class=" nav flex-column">
+                <ul class="nav flex-column">
                     <li class="nav-item">
                         <a class="lien-footer nav-link" href="/">Accueil</a>
                     </li>
