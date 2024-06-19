@@ -44,7 +44,7 @@ class ProductManager extends DatabaseManager {
     public function update(int $product_id, string $product_name, string $product_image, string $description)
     {
         $sql = "UPDATE product 
-        SET product_name = :product_name, image_product = :product_image, description = :description 
+        SET product_name = :product_name, image_product = :image_product, description = :description 
         WHERE product_id = :product_id";
 
         $stmt = $this->getDatabase()->prepare($sql);

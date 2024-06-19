@@ -26,7 +26,7 @@
                         <a class="btn btn-success my-1" href="/dashboard/produit/modification?product_id=<?= $product_element['product_id'] ?>">
                             <i class="bi bi-pencil-fill"></i>
                         </a>
-                        <a class="btn btn-danger my-1" href="/dashboard/produit/supprimer?id=<?= $product_element['product_id'] ?>">
+                        <a class="btn btn-danger my-1" href="/dashboard/produit/supprimer?product_id=<?= $product_element['product_id'] ?>">
                             <i class="bi bi-trash3-fill"></i>
                         </a>
                     </td>
