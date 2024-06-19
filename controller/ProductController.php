@@ -3,6 +3,8 @@ namespace App\controller;
 
 use App\model\ProductModel;
 use App\manager\ProductManager;
+use App\Model\Page;
+use App\manager\PageManager;
 
 class ProductController extends AbstractController {
 
@@ -19,15 +21,44 @@ class ProductController extends AbstractController {
         ], 'dashboard',$files);
     }
 
+    public function viewAll()
+    {
+        $tableSql = new ProductManager;
+        $product_elements = $tableSql->findAll();
+
+        $productPage = new PageManager;
+        $elements = $productPage->findElements('Produits');
+
+        $newPage = new Page($elements);
+
+        $this->render('product-list', [
+            'newPage' => $newPage,
+            'title_default' => 'Page | Chocolaterie',
+            'product_elements' => $product_elements,
+            'name' => 'product'
+        ]);
+
+    }
+
     public function showOne(int $product_id)
     {
         $newProduct = new ProductModel;
         $newProduct->setId($product_id);
         
         $tableSql = new ProductManager;
-        $product_elements = $tableSql->findOne($newProduct->getId());
+        $product_element = $tableSql->findOne($newProduct->getId());
 
-        return $product_elements;
+        $productPage = new PageManager;
+        $elements = $productPage->findElements('Produits');
+
+        $newPage = new Page($elements);
+
+        $this->render('product-detail', [
+            'newPage' => $newPage,
+            'title_default' => 'Page | Chocolaterie',
+            'product_element' => $product_element,
+            'name' => 'product'
+        ]);
     }
 
     public function getCategory():array 
@@ -125,11 +156,12 @@ class ProductController extends AbstractController {
         ], 'dashboard',$files);
     }
 
-    public function updateProduct(string $path, string $files){
+    public function updateProduct(string $path, string $files)
+    {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if(!empty($_POST['product_name']) && !empty($_POST['description']) && !empty($_POST['category']) && !empty($_FILES['image_product']['name'])){
+            if(!empty($_POST['product_name']) && !empty($_POST['description']) && !empty($_FILES['image_product']['name'])){
     
                 $newProduct = new ProductModel;
     
@@ -137,13 +169,11 @@ class ProductController extends AbstractController {
                 $newProduct->setProduct_name($_POST['product_name']);
                 $newProduct->setProduct_image($_FILES['image_product']['name']);
                 $newProduct->setDescription($_POST['description']);
-                $newProduct->setCategory_id($_POST['category']);
     
                 $product_id = $newProduct->getId();
                 $product_name = $newProduct->getProduct_name();
                 $image_product = $newProduct->getProduct_image();
                 $description = $newProduct->getDescription();
-                $category_id = $newProduct->getCategory_id();
                     
                 //image infos :
                 $tmpName = $_FILES['image_product']['tmp_name'];
@@ -161,7 +191,6 @@ class ProductController extends AbstractController {
                         'title' => 'Dashboard',
                         'first_title' => 'Dashboard administrateur',
                         'name' => 'dashboard',
-                        'categorys' => $this->getCategory(),
                         'msg_error' => $msg_error
                     ], 'dashboard',$files);
                 } else {
@@ -171,7 +200,7 @@ class ProductController extends AbstractController {
                     
                     $image_product = "/assets/images/produits/" . $image_product;
 
-                    $newQuery->update($product_id, $product_name, $image_product, $description, $category_id);
+                    $newQuery->update($product_id, $product_name, $image_product, $description);
                     
                     $this->redirect('/dashboard/produits');
                 }
@@ -182,7 +211,6 @@ class ProductController extends AbstractController {
                     'title' => 'Dashboard',
                     'first_title' => 'Dashboard administrateur',
                     'name' => 'dashboard',
-                    'categorys' => $this->getCategory(),
                     'msg_error' => $msg_error
                 ], 'dashboard',$files);
             }
@@ -192,7 +220,14 @@ class ProductController extends AbstractController {
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
-            'categorys' => $this->getCategory()
         ], 'dashboard',$files);
+    }
+
+    public function deleteProduct(int $product_id)
+    {
+        $newQuery = new ProductManager;
+        $newQuery->delete($product_id);
+
+        $this->redirect('/dashboard/produits');
     }
 }

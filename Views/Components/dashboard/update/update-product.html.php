@@ -12,13 +12,6 @@
             <label for="description" class="form-label">Description du produit</label>
             <textarea class="form-control" name="description" id="description" rows="8"></textarea>
         </div>
-        <div class="container g-0 my-4">
-            <select class="form-select" aria-label="selection de la categorie" name="category" id="category">
-                <?php foreach ($categorys as $category) : ?>
-                    <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
         <div class="d-flex justify-content-center my-2">
             <button class="btn btn-success" type="submit">Modifier</button>
         </div>

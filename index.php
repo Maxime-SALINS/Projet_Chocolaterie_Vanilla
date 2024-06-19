@@ -25,7 +25,11 @@ switch ($uri) {
     break;
 
   case '/produits':
-    $Page->product();
+    $newProduct->viewAll();
+    break;
+
+  case '/produit/detail?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
+    $newProduct->showOne($_GET['product_id']);
     break;
   
   case '/admin':
@@ -82,6 +86,10 @@ switch ($uri) {
     $path = 'update-product';
     $file = "Components/dashboard/update/";
     $newProduct->updateProduct($path, $file);
+    break;
+
+  case '/dashboard/produit/supprimer?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
+    $newProduct->deleteProduct($_GET['product_id']);
     break;
   
   case '/dashboard/contenu/?page_name=Accueil':

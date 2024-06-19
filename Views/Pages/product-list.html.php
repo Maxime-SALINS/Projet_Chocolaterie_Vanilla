@@ -67,87 +67,17 @@
         <h2 class="titre-secondary text-uppercase text-center my-4"><?= $newPage->getSecondTitle(1)?></h2>
         <div class="container">
             <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Bonbon chocolat noir</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/image-product.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
+                <?php foreach($product_elements as $product_element):?>
+                    <div class="col-md-4 mb-4">
+                        <div class="card-body">
+                            <h3 class="titre-tertiary my-3"><?= $product_element['product_name']?></h3>
+                            <img class="card-img-top rounded" src="<?= $product_element['image_product']?>" alt="image produit chocolat">
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-product btn-product-small text-white my-3" href="/produit/detail?product_id=<?= $product_element['product_id']?>">En savoir plus</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Bonbon chocolat au lait</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/image-product.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Bonbon chocolat praliné</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/image-product.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Café de colombie</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/810BC1B5-95C7-49E7-B402-B8A8757E5BC0.jpeg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Café de cuba</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/810BC1B5-95C7-49E7-B402-B8A8757E5BC0.jpeg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Tisane miel citron</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/DSCF6809.JPG" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Glace chocolat</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/DSCF8358.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Glace vanille</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/DSCF8358.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card-body">
-                        <h3 class="titre-tertiary my-3">Glace framboise</h3>
-                        <img class="card-img-top rounded" src="/assets/images/produits/DSCF8358.jpg" alt="image produit chocolat">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-product btn-product-small text-white my-3" href="#">En savoir plus</a>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
             </div>
         </div>
         <div class="container">

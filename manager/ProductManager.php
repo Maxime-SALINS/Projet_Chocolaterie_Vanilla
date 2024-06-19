@@ -41,10 +41,10 @@ class ProductManager extends DatabaseManager {
         $stmt->execute();
     }
 
-    public function update(int $product_id, string $product_name, string $product_image, string $description, int $category_id)
+    public function update(int $product_id, string $product_name, string $product_image, string $description)
     {
         $sql = "UPDATE product 
-        SET product_name = :product_name, image_product = :product_image, description = :description, category_id= :category_id 
+        SET product_name = :product_name, image_product = :product_image, description = :description 
         WHERE product_id = :product_id";
 
         $stmt = $this->getDatabase()->prepare($sql);
@@ -52,7 +52,6 @@ class ProductManager extends DatabaseManager {
         $stmt->bindValue(':product_name', $product_name, PDO::PARAM_STR);
         $stmt->bindValue(':image_product', $product_image, PDO::PARAM_STR);
         $stmt->bindValue(':description', $description, PDO::PARAM_STR);
-        $stmt->bindValue(':category_id', $category_id, PDO::PARAM_INT);
 
         $stmt->execute();
     }

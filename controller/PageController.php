@@ -4,7 +4,7 @@ namespace App\controller;
 use App\model\Page;
 use App\manager\PageManager;
 use App\controller\NewsletterController;
-use App\controller\ProductController;
+use App\manager\ProductManager;
 
 class PageController extends AbstractController {
 
@@ -77,20 +77,6 @@ class PageController extends AbstractController {
             'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'name' => 'story'
-        ]);
-    }
-
-    public function product()
-    {
-        $productPage = new PageManager;
-        $elements = $productPage->findElements('Produits');
-
-        $newPage = new Page($elements);
-
-        $this->render('product-list', [
-            'newPage' => $newPage,
-            'title_default' => 'Page | Chocolaterie',
-            'name' => 'product'
         ]);
     }
 
