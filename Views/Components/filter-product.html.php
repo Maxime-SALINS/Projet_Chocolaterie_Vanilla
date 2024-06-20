@@ -7,19 +7,19 @@
         <form class="px-2 px-sm-0" action="" method="post" id="formFilter">
             <h4 class="text-center text-decoration-underline my-3">Filter par type :</h4>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="filter_chocolat" id="filter_chocolat" value="chocolat">
+                <input class="form-check-input" type="checkbox" name="filter_chocolate" id="filter_chocolat" value="Chocolat">
                 <label class="form-check-label" for="vendu">Chocolats</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="filter_cafe" id="filter_cafe" value="cafe">
+                <input class="form-check-input" type="checkbox" name="filter_cafe" id="filter_cafe" value="Cafe">
                 <label for="stock">Café</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="filter_the" id="filter_the" value="the">
+                <input class="form-check-input" type="checkbox" name="filter_the" id="filter_the" value="The">
                 <label for="vendu">Thé</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="filter_glace" id="filter_glace" value="glace">
+                <input class="form-check-input" type="checkbox" name="filter_glace" id="filter_glace" value="Glace">
                 <label for="stock">Glace</label>
             </div>
             <!-- <h4 class="text-center text-decoration-underline my-3">Type de chocolat:</h4>

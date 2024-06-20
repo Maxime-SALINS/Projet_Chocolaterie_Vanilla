@@ -27,6 +27,18 @@ class ProductManager extends DatabaseManager {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function findByCategory(string $category_name):array
+    {
+        $sql = "SELECT * FROM product p INNER JOIN category c ON p.category_id = c.category_id WHERE category_name = :category_name";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->bindValue(':category_name', $category_name, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     public function create(string $product_name, string $product_image, string $description, int $category_id)
     {
         $sql = "INSERT INTO product (product_name, image_product, description, category_id) VALUES (:product_name, :image_product, :description, :category_id)";

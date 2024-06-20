@@ -5,8 +5,7 @@
     </div>
 </div>
 <div class="d-flex">
-    <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/filter-product.html.php';?>
-    <section class="col-12 col-sm-10 px-3">
+    <section class="col-12 px-3">
         <h2 class="titre-secondary text-uppercase text-center my-4">catégorie <?= $product_element['category_name']?></h2>
         <div class="container">
             <div class="row">

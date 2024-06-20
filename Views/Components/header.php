@@ -17,7 +17,9 @@
                                     Produits
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/produits">Chocolat</a></li>
+                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/produits">Tous nos produits</a></li>
+                                    <hr>
+                                    <li><a class="lien-drop dropdown-item text-uppercase" href="/404">Chocolat</a></li>
                                     <li><a class="lien-drop dropdown-item text-uppercase" href="/404">Café & Thé</a></li>
                                     <li><a class="lien-drop dropdown-item text-uppercase" href="/404">Glace</a></li>
                                 </ul>

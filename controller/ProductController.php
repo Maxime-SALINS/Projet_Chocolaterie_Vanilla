@@ -23,6 +23,8 @@ class ProductController extends AbstractController {
 
     public function viewAll()
     {
+        $newProduct = new ProductModel;
+        
         $tableSql = new ProductManager;
         $product_elements = $tableSql->findAll();
 
@@ -30,6 +32,34 @@ class ProductController extends AbstractController {
         $elements = $productPage->findElements('Produits');
 
         $newPage = new Page($elements);
+
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            
+            if(isset($_POST['filter_chocolate'])){
+
+                $newProduct->setCategory($_POST['filter_chocolate']);
+                $category_name = $newProduct->getCategory();
+                $product_elements = $tableSql->findByCategory($category_name);
+
+            } elseif(isset($_POST['filter_cafe'])){
+
+                $newProduct->setCategory($_POST['filter_cafe']);
+                $category_name = $newProduct->getCategory();
+                $product_elements = $tableSql->findByCategory($category_name);
+
+            } elseif(isset($_POST['filter_the'])){
+
+                $newProduct->setCategory($_POST['filter_the']);
+                $category_name = $newProduct->getCategory();
+                $product_elements = $tableSql->findByCategory($category_name);
+
+            } elseif(isset($_POST['filter_glace'])){
+
+                $newProduct->setCategory($_POST['filter_glace']);
+                $category_name = $newProduct->getCategory();
+                $product_elements = $tableSql->findByCategory($category_name);
+            }
+        }
 
         $this->render('product-list', [
             'newPage' => $newPage,

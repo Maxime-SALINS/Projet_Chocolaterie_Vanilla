@@ -106,6 +106,7 @@ class ProductModel {
      */ 
     public function setCategory(string $category)
     {
+        $category = htmlspecialchars($category);
         $this->category = $category;
 
         return $this;
