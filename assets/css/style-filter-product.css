@@ -1,0 +1,33 @@
+#filter_responsive {
+    cursor: pointer;
+}
+
+@media (max-width: 650px) {
+
+    .title-filter{
+        font-size: smaller !important;
+    }
+
+    #filter_responsive::before {
+        content: "\2965";
+    }
+
+    .active_filter #filter_responsive::before {
+        content: "\2715";
+    }
+
+    #formFilter {
+        position: absolute;
+        left: -100%;
+        top: 28%;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: left;
+        transition: 0.25s;
+    }
+
+    #formFilter.active_filter {
+        left: 0;
+    }
+}
