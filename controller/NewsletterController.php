@@ -14,10 +14,12 @@ class NewsletterController extends AbstractController{
         return $table_subscriber;
     }
 
-    public function newSubscriber()
+    public function newsletterSubscription()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $msg_success = $msg_error = $error = null;
 
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
             if(!empty($_POST['useremail_news'])){
 
                 $newSubscriber = new NewsletterModel;
@@ -28,16 +30,22 @@ class NewsletterController extends AbstractController{
 
                 if($newSQL->findEmail($subEmail)) {
                     $newSQL->uplaodSubscriber($subEmail);
-                    return true;
+                    $msg_success = "Vous êtes abonné à la Newsletter";
                 } else {
-                    return false;
+                    $msg_error = "Vous avez déjà souscrit un abonnement";
                 }
             } else {
-                return false;
+                $error = "Vous devez remplir ce champ";
             }
         }
-    }
 
+        return [
+            'msg_success' => $msg_success,
+            'msg_error' => $msg_error,
+            'error' => $error,
+        ];
+    }
+    
     public function deleteSubscriber(string $email) {
         
         $newSubscriber = new NewsletterModel;

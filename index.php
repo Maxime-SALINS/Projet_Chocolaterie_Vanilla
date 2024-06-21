@@ -61,13 +61,13 @@ switch ($uri) {
   case '/dashboard/referencement':
     $path = 'seo-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $Page->viewDashSeo($path, $file);
     break;
   
   case '/dashboard/referencement/modification?id='.(isset($_GET['id']) ? $_GET['id'] : '' ):
     $path = 'update-seo';
     $file = "Components/dashboard/update/";
-    $Page->dashboard($path, $file);
+    $Page->viewDashSeo($path, $file);
     break;
 
   case '/dashboard/produits':
@@ -125,7 +125,7 @@ switch ($uri) {
   case '/dashboard/newsletter':
     $path = 'newsletter-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $Page->viewDashNewsletter($path, $file);
     break;
 
   case '/dashboard/newsletter/delete?email='.(isset($_GET['email']) ? $_GET['email'] : '' ):

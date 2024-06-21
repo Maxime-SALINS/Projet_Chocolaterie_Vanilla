@@ -63,6 +63,7 @@ class Page {
 
     public function setMetaDescription(string $metaDescription): void
     {
+        $metaDescription = htmlspecialchars($metaDescription);
         $this->metaDescription = $metaDescription;
     }
 

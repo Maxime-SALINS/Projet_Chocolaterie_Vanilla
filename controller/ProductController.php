@@ -5,11 +5,15 @@ use App\model\ProductModel;
 use App\manager\ProductManager;
 use App\Model\Page;
 use App\manager\PageManager;
+use App\controller\NewsletterController;
 
 class ProductController extends AbstractController {
 
     public function viewProductDash(string $path, string $files)
     {
+        $dashboardPage = new PageManager;
+        $elements = $dashboardPage->findAllPage();
+
         $tableSql = new ProductManager;
         $product_elements = $tableSql->findAll();
 
@@ -17,6 +21,7 @@ class ProductController extends AbstractController {
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
+            'elements' => $elements,
             'product_elements'=>$product_elements
         ], 'dashboard',$files);
     }
@@ -24,13 +29,14 @@ class ProductController extends AbstractController {
     public function viewAll()
     {
         $newProduct = new ProductModel;
-        
         $tableSql = new ProductManager;
-        $product_elements = $tableSql->findAll();
-
         $productPage = new PageManager;
+        $newsQuery = new NewsletterController;
+        
+        $product_elements = $tableSql->findAll();
         $elements = $productPage->findElements('Produits');
-
+        $newsletterStatus = $newsQuery->newsletterSubscription();
+        
         $newPage = new Page($elements);
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -61,34 +67,35 @@ class ProductController extends AbstractController {
             }
         }
 
-        $this->render('product-list', [
+        $this->render('product-list', array_merge([
             'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'product_elements' => $product_elements,
             'name' => 'product'
-        ]);
+        ], $newsletterStatus));
 
     }
 
     public function showOne(int $product_id)
     {
         $newProduct = new ProductModel;
-        $newProduct->setId($product_id);
-        
         $tableSql = new ProductManager;
-        $product_element = $tableSql->findOne($newProduct->getId());
-
         $productPage = new PageManager;
+        $newsQuery = new NewsletterController;
+        
+        $newProduct->setId($product_id);
+        $product_element = $tableSql->findOne($newProduct->getId());
         $elements = $productPage->findElements('Produits');
+        $newsletterStatus = $newsQuery->newsletterSubscription();
 
         $newPage = new Page($elements);
 
-        $this->render('product-detail', [
+        $this->render('product-detail', array_merge([
             'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'product_element' => $product_element,
             'name' => 'product'
-        ]);
+        ], $newsletterStatus));
     }
 
     public function getCategory():array 
@@ -135,11 +142,15 @@ class ProductController extends AbstractController {
                     if (!in_array(strtolower($imgExtension),$extensionValid)){
 
                         $msg_error = "l'extention de l'image n'est pas valide";
+                        
+                        $dashboardPage = new PageManager;
+                        $elements = $dashboardPage->findAllPage();
 
                         $this->render($path, [
                             'title' => 'Dashboard',
                             'first_title' => 'Dashboard administrateur',
                             'name' => 'dashboard',
+                            'elements' => $elements,
                             'categorys' => $this->getCategory(),
                             'msg_error' => $msg_error
                         ], 'dashboard',$files);
@@ -157,10 +168,14 @@ class ProductController extends AbstractController {
                 } else{
                     $msg_error = "le produit existe déjà";
 
+                    $dashboardPage = new PageManager;
+                    $elements = $dashboardPage->findAllPage();
+
                     $this->render($path, [
                         'title' => 'Dashboard',
                         'first_title' => 'Dashboard administrateur',
                         'name' => 'dashboard',
+                        'elements' => $elements,
                         'categorys' => $this->getCategory(),
                         'msg_error' => $msg_error
                     ], 'dashboard',$files);
@@ -168,20 +183,28 @@ class ProductController extends AbstractController {
             } else {
                 $msg_error = "Vueillez remplir tous les champs";
 
+                $dashboardPage = new PageManager;
+                $elements = $dashboardPage->findAllPage();
+
                 $this->render($path, [
                     'title' => 'Dashboard',
                     'first_title' => 'Dashboard administrateur',
                     'name' => 'dashboard',
+                    'elements' => $elements,
                     'categorys' => $this->getCategory(),
                     'msg_error' => $msg_error
                 ], 'dashboard',$files);
             }
         }
 
+        $dashboardPage = new PageManager;
+        $elements = $dashboardPage->findAllPage();
+
         $this->render($path, [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
+            'elements' => $elements,
             'categorys' => $this->getCategory()
         ], 'dashboard',$files);
     }
@@ -217,10 +240,15 @@ class ProductController extends AbstractController {
                 //Test if extension is valid or not :
                 if (!in_array(strtolower($imgExtension),$extensionValid)){
                     $msg_error = "l'extention de l'image n'est pas valide";
+                    
+                    $dashboardPage = new PageManager;
+                    $elements = $dashboardPage->findAllPage();
+
                     $this->render($path, [
                         'title' => 'Dashboard',
                         'first_title' => 'Dashboard administrateur',
                         'name' => 'dashboard',
+                        'elements' => $elements,
                         'msg_error' => $msg_error
                     ], 'dashboard',$files);
                 } else {
@@ -237,19 +265,27 @@ class ProductController extends AbstractController {
             } else {
                 $msg_error = "Vueillez remplir tous les champs";
 
+                $dashboardPage = new PageManager;
+                $elements = $dashboardPage->findAllPage();
+
                 $this->render($path, [
                     'title' => 'Dashboard',
                     'first_title' => 'Dashboard administrateur',
                     'name' => 'dashboard',
+                    'elements' => $elements,
                     'msg_error' => $msg_error
                 ], 'dashboard',$files);
             }
         }
 
+        $dashboardPage = new PageManager;
+        $elements = $dashboardPage->findAllPage();
+
         $this->render($path, [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
+            'elements' => $elements,
         ], 'dashboard',$files);
     }
 
