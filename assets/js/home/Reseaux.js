@@ -3,7 +3,7 @@ let reseaux = document.getElementById('reseaux');
 
 
 reseaux.innerHTML = `
-<div class="row">
+<div class="row text-center">
     <div class="g-0 col-12 col-md-6 col-lg-3">
         <img class="img-fluid" src="assets/images/reseaux/img-1.jpg">
     </div>
