@@ -10,10 +10,10 @@ use App\controller\UserController;
 use App\controller\NewsletterController;
 use App\controller\ProductController;
 
-$uri = $_SERVER['REQUEST_URI'];
 $Page = new PageController();
 $newProduct = new ProductController;
 
+$uri = $_SERVER['REQUEST_URI'];
 
 switch ($uri) {
   case '/contact':

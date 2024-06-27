@@ -19,15 +19,15 @@
 
 <body>
     <?php
-    if ($name !== "login" && $name !== "dashboard") {
-        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/header.php';
-    }
+        if ($name !== "login") {
+            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/header.php';
+        }
     ?>
     <?= $content ?>
     <?php
-    if ($name !== "login" && $name !== "dashboard") {
-        require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/footer.php';
-    }
+        if ($name !== "login") {
+            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/footer.php';
+        }
     ?>
 
     <?php if ($name === "product") : ?>
@@ -37,6 +37,9 @@
     <?php if ($name === "login") : ?>
         <script src="../../assets/js/validation/RegexConnect.js"></script>
     <?php else : ?>
+        <?php if($name === "contact"):?>
+            <script src="../../assets/js/validation/RegexContact.js"></script>
+        <?php endif;?>
         <script src="../../assets/js/validation/RegexNewsletter.js"></script>
     <?php endif; ?>
 
@@ -44,7 +47,7 @@
         <script src="../../assets/js/home/Reseaux.js"></script>
         <script src="../../assets/js/home/Carousel.js"></script>
     <?php endif; ?>
-    
+
     <script src="https://kit.fontawesome.com/9f06e862eb.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>

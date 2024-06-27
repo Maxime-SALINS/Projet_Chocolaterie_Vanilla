@@ -23,7 +23,7 @@
                 <?php endforeach;?>
             </div>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item">
@@ -41,6 +41,6 @@
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div> -->
     </section>
 </div>

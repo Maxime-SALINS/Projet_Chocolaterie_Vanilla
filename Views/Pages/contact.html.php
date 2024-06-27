@@ -37,7 +37,7 @@
     <section class="col-12 col-lg-6">
         <h2 class="titre-secondary text-uppercase text-center my-4">contactez nous !</h2>
         <div class="container">
-            <form action="" method="POST">
+            <form id="formContact" action="" method="POST">
                 <div class="row mb-3">
                     <div class="mt-1 col-12 col-lg-8">
                         <input class="p-3 col-12 form-control bg-secondary-subtle" id="name" type="text" placeholder="NOM" aria-label="nom">
@@ -56,7 +56,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-12">
-                        <input class="p-3 col-12 form-control bg-secondary-subtle" id="sujet" type="text" placeholder="SUJET">
+                        <input class="p-3 col-12 form-control bg-secondary-subtle" id="subject" type="text" placeholder="SUJET">
                     </div>
                 </div>
                 <div class="row mb-3">
