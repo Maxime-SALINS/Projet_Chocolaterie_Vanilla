@@ -156,4 +156,24 @@ class PageController extends AbstractController {
             ], 'dashboard',$file);
         }
     }
+
+    public function viewDashPage(string $page_name, string $path, string $file)
+    {
+        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
+            $this->redirect('/');
+            exit();
+        } else {
+            $dashboardPage = new PageManager;
+            $elements = $dashboardPage->findAllPage();
+            $page_elements = $dashboardPage->findElementsDash($page_name);
+
+            $this->render($path, [
+                'title' => 'Dashboard',
+                'first_title' => 'Dashboard administrateur',
+                'name' => 'dashboard',
+                'elements' => $elements,
+                'page_elements'=>$page_elements
+            ], 'dashboard',$file);
+        }
+    }
 }

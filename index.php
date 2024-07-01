@@ -95,31 +95,29 @@ switch ($uri) {
   case '/dashboard/contenu/?page_name=Accueil':
     $path = 'accueil-content-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $page_name = "Accueil";
+    $Page->viewDashPage($page_name,$path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Histoire':
     $path = 'story-content-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $page_name = "Histoire";
+    $Page->viewDashPage($page_name,$path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Produits':
     $path = 'product-content-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $page_name = "Produits";
+    $Page->viewDashPage($page_name,$path, $file);
     break;
   
   case '/dashboard/contenu/?page_name=Contact':
     $path = 'contact-content-dashboard';
     $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
-    break;
-  
-  case '/dashboard/contenu/?page_name=Erreur 404':
-    $path = '404-content-dashboard';
-    $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
+    $page_name = "Contact";
+    $Page->viewDashPage($page_name,$path, $file);
     break;
 
   case '/dashboard/newsletter':
