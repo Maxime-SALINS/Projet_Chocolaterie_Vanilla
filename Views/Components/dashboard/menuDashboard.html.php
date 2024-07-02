@@ -15,7 +15,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <?php foreach ($elements as $element):?>
-                        <li><a class="dropdown-item text-center" href="/dashboard/contenu/?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a></li>
+                        <li><a class="dropdown-item text-center" href="/dashboard/contenu?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </li>

@@ -58,7 +58,8 @@ class Page {
 
     public function setFirstTitle(string $firstTitle): void
     {
-        $this->firstTitle = $firstTitle;
+        $firstTitleValid = htmlspecialchars($firstTitle);
+        $this->firstTitle = $firstTitleValid;
     }
 
     public function setMetaDescription(string $metaDescription): void

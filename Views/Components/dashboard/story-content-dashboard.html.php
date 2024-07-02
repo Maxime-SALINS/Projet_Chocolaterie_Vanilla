@@ -19,7 +19,7 @@
                     <td><?= $page_element['element_type'] ?></td>
                     <td><?= $page_element['content'] ?></td>
                     <td>
-                        <a class="btn btn-success" href="/dashboard/referencement/modification?id=<?= $page_element['element_id'] ?>">
+                        <a class="btn btn-success" href="/dashboard/contenu/update?id=<?= $page_element['element_id']?>&element_type=<?= $page_element['element_type']?>">
                             <i class="bi bi-pencil-fill"></i>
                         </a>
                     </td>

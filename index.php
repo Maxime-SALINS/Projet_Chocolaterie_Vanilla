@@ -92,32 +92,38 @@ switch ($uri) {
     $newProduct->deleteProduct($_GET['product_id']);
     break;
   
-  case '/dashboard/contenu/?page_name=Accueil':
+  case '/dashboard/contenu?page_name=Accueil':
     $path = 'accueil-content-dashboard';
     $file = "Components/dashboard/";
     $page_name = "Accueil";
     $Page->viewDashPage($page_name,$path, $file);
     break;
   
-  case '/dashboard/contenu/?page_name=Histoire':
+  case '/dashboard/contenu?page_name=Histoire':
     $path = 'story-content-dashboard';
     $file = "Components/dashboard/";
     $page_name = "Histoire";
     $Page->viewDashPage($page_name,$path, $file);
     break;
   
-  case '/dashboard/contenu/?page_name=Produits':
+  case '/dashboard/contenu?page_name=Produits':
     $path = 'product-content-dashboard';
     $file = "Components/dashboard/";
     $page_name = "Produits";
     $Page->viewDashPage($page_name,$path, $file);
     break;
   
-  case '/dashboard/contenu/?page_name=Contact':
+  case '/dashboard/contenu?page_name=Contact':
     $path = 'contact-content-dashboard';
     $file = "Components/dashboard/";
     $page_name = "Contact";
     $Page->viewDashPage($page_name,$path, $file);
+    break;
+
+  case '/dashboard/contenu/update?id='.(isset($_GET['id']) ? $_GET['id'] : '').'&element_type='.(isset($_GET['element_type']) ? $_GET['element_type'] : ''):
+    $path = 'update-page';
+    $file = "Components/dashboard/update/";
+    $Page->updateElementsPage($path, $file);
     break;
 
   case '/dashboard/newsletter':

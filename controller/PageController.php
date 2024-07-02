@@ -176,4 +176,88 @@ class PageController extends AbstractController {
             ], 'dashboard',$file);
         }
     }
+
+    public function updateElementsPage(string $path, string $file)
+    {
+        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
+
+            $this->redirect('/');
+            exit();
+        
+        } else {
+
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                 
+                if(!empty($_POST['title'])){
+
+                    $value = htmlspecialchars($_POST['title']);
+                    $id = $_GET['id'];
+
+                    $newsQuery = new PageManager;
+                    $newsQuery->updateContent($value, $id);
+
+                    $this->redirect('/dashboard/contenu?page_name=Accueil');
+
+                } elseif(!empty($_FILES['image_page'])){
+
+                    $image_page = $_FILES['image_page']['name'];
+
+                    //image infos :
+                    $tmpName = $_FILES['image_product']['tmp_name'];
+
+                    //Get extension of image :
+                    $imgExtension = pathinfo($image_page, PATHINFO_EXTENSION);
+
+                    //Regex for extension valid :
+                    $extensionValid = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
+
+                    if (!in_array(strtolower($imgExtension),$extensionValid)) {
+                        
+                        $msg_error = "l'extention de l'image n'est pas valide";
+                    
+                        $dashboardPage = new PageManager;
+                        $elements = $dashboardPage->findAllPage();
+    
+                        $this->render($path, [
+                            'title' => 'Dashboard',
+                            'first_title' => 'Dashboard administrateur',
+                            'name' => 'dashboard',
+                            'elements' => $elements,
+                            'msg_error' => $msg_error
+                        ], 'dashboard',$file);
+                    } else {
+                        $newQuery = new PageManager;
+                    
+                        move_uploaded_file($tmpName, 'assets/images/carousel-n1/'. $image_page);
+                        
+                        $value = "/assets/images/carousel-n1/" . $image_page;
+                        $id = $_GET['id'];
+    
+                        $newQuery->updateContent($value, $id);
+                        
+                        $this->redirect('/dashboard/contenu?page_name=Accueil');
+                    }
+                } elseif (!empty($_POST['text'])){
+
+                    $value = htmlspecialchars($_POST['text']);
+                    $id = $_GET['id'];
+
+                    $newsQuery = new PageManager;
+                    $newsQuery->updateContent($value, $id);
+
+                    $this->redirect('/dashboard/contenu?page_name=Accueil');
+                }
+            }
+
+            $dashboardPage = new PageManager;
+            $elements = $dashboardPage->findAllPage();
+
+            $this->render($path, [
+                'title' => 'Dashboard',
+                'first_title' => 'Dashboard administrateur',
+                'name' => 'dashboard',
+                'elements' => $elements,
+            ], 'dashboard',$file);
+        }
+    }
 }
