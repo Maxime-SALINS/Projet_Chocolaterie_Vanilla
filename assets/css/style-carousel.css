@@ -74,3 +74,26 @@
 .text-card{
     text-align: justify;
 }
+
+
+@media screen and (max-width: 992px) {
+
+    .text-card{
+        font-size: smaller;
+    }
+
+    .card-title{
+        font-size: smaller;
+    }
+
+    .carousel-card{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    .carousel-card{
+        width: 75%;
+    }
+}

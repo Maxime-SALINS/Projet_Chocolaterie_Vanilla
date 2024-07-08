@@ -99,7 +99,7 @@
             <div class="w-25 my-2">
               <img class="img-fluid rounded-circle border border-black" src="../../assets/images/logo/default-img.png" alt="img">
             </div>
-            <h4>Maxime SALINS</h4>
+            <h4 class="card-title">Maxime SALINS</h4>
           </div>
           <div class="container my-3">
             <p class="text-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat distinctio veniam, explicabo, natus debitis excepturi officia, omnis praesentium corporis quisquam voluptas dolorem cumque possimus assumenda eligendi aliquam! Porro, molestiae!</p>
@@ -120,7 +120,7 @@
             <div class="w-25 my-2">
               <img class="img-fluid rounded-circle border border-black" src="../../assets/images/logo/default-img.png" alt="img">
             </div>
-            <h4>Maxime SALINS</h4>
+            <h4 class="card-title">Maxime SALINS</h4>
           </div>
           <div class="container my-3">
             <p class="text-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat distinctio veniam, explicabo, natus debitis excepturi officia, omnis praesentium corporis quisquam voluptas dolorem cumque possimus assumenda eligendi aliquam! Porro, molestiae!</p>
@@ -141,7 +141,7 @@
             <div class="w-25 my-2">
               <img class="img-fluid rounded-circle border border-black" src="../../assets/images/logo/default-img.png" alt="img">
             </div>
-            <h4>Maxime SALINS</h4>
+            <h4 class="card-title">Maxime SALINS</h4>
           </div>
           <div class="container my-3">
             <p class="text-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat distinctio veniam, explicabo, natus debitis excepturi officia, omnis praesentium corporis quisquam voluptas dolorem cumque possimus assumenda eligendi aliquam! Porro, molestiae!</p>
@@ -162,7 +162,7 @@
             <div class="w-25 my-2">
               <img class="img-fluid rounded-circle border border-black" src="../../assets/images/logo/default-img.png" alt="img">
             </div>
-            <h4>Maxime SALINS</h4>
+            <h4 class="card-title">Maxime SALINS</h4>
           </div>
           <div class="container my-3">
             <p class="text-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat distinctio veniam, explicabo, natus debitis excepturi officia, omnis praesentium corporis quisquam voluptas dolorem cumque possimus assumenda eligendi aliquam! Porro, molestiae!</p>
@@ -183,7 +183,7 @@
             <div class="w-25 my-2">
               <img class="img-fluid rounded-circle border border-black" src="../../assets/images/logo/default-img.png" alt="img">
             </div>
-            <h4>Maxime SALINS</h4>
+            <h4 class="card-title">Maxime SALINS</h4>
           </div>
           <div class="container my-3">
             <p class="text-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat distinctio veniam, explicabo, natus debitis excepturi officia, omnis praesentium corporis quisquam voluptas dolorem cumque possimus assumenda eligendi aliquam! Porro, molestiae!</p>
