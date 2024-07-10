@@ -42,8 +42,9 @@ class User {
 
     public function setPassword(string $password) 
     {
-        $password_hash = password_hash($password,PASSWORD_DEFAULT,['cost'=> 12]);
-        $this->password = $password_hash;
+        // $password_hash = password_hash($password,PASSWORD_DEFAULT,['cost'=> 12]);
+        $password = htmlspecialchars($password);
+        $this->password = $password;
     }
 
     public function getPassword():string
