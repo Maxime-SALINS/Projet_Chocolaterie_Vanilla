@@ -14,7 +14,7 @@
                 </div>
                 <section class="col-12 col-sm-6">
                     <h3 class="titre-tertiary text-center"><?= $product_element['product_name']?></h3>
-                    <p><?= $product_element['description']?></p>
+                    <p class="text-description"><?= $product_element['description']?></p>
                 </section>
             </div>
         </div>
