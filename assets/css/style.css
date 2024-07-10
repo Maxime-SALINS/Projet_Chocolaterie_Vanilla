@@ -139,15 +139,24 @@
     li{
         padding: 0 2% !important;
     }
+
+    .nav-link:hover{
+        background-color: #876647;
+        color: white !important;
+    }
+
+    .nav-link::before{
+        height: 0px;
+    }
 }
 
 @media screen and (max-width: 576px) {
 
     .titre_principal{
-        font-size: small !important;
+        font-size: medium !important;
     }
 
-    .img-fluid{
-        width: 50% !important;
+    .navbar-brand {
+        width: 10% !important;
     }
 }

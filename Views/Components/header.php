@@ -1,13 +1,13 @@
 <header>
-    <div class="d-flex navbar justify-content-beetween py-0">
-        <a class="navbar-brand" href="/">
-            <img class="mx-2 my-1 img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
+    <div class="navbar justify-content-beetween py-0">
+        <a class="navbar-brand mx-2" href="/">
+            <img class="img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
         </a>
         <section class="text-center">
             <h1 class="titre_principal text-uppercase my-3"><?= isset($newPage) ? $newPage->getFirstTitle() : $first_title; ?></h1>
             <nav class="navbar navbar-expand-lg d-none d-lg-block p-0">
                 <div class="container-fluid">
-                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <div class="collapse navbar-collapse justify-content-center">
                         <ul class="navbar-nav">
                             <li class="nav-item mx-5">
                                 <a class="nav-link nav-link-ltr text-uppercase" aria-current="page" href="/">Accueil</a>
@@ -44,8 +44,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
-    <div class="container-fluid">
-        <nav class="navbar text-center d-block d-lg-done">
+    <div class="container-fluid d-block d-lg-done">
+        <nav class="navbar text-center">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav">
@@ -56,7 +56,8 @@
                             <a class="nav-link nav-link-ltr text-uppercase dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Produits
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu text-center">
+                                <li><a class="lien-drop dropdown-item text-uppercase" href="/produits">Tous nos produits</a></li>
                                 <li><a class="lien-drop dropdown-item text-uppercase" href="produits">Chocolat</a></li>
                                 <li><a class="lien-drop dropdown-item text-uppercase" href="404">Café & Thé</a></li>
                                 <li><a class="lien-drop dropdown-item text-uppercase" href="404">Glace</a></li>
@@ -66,7 +67,7 @@
                             <a class="nav-link nav-link-ltr text-uppercase" href="histoire">Histoire</a>
                         </li>
                         <li class="nav-item mx-5 d-block d-lg-none d-xl-none">
-                            <a class="contact-responsive nav-link-ltr text-uppercase text-decoration-none" href="contact">contact</a>
+                            <a class="contact-responsive nav-link nav-link-ltr text-uppercase text-decoration-none" href="contact">contact</a>
                         </li>
                     </ul>
                 </div>
