@@ -32,7 +32,7 @@ switch ($uri) {
     $newProduct->showOne($_GET['product_id']);
     break;
   
-  case '/admin':
+  case '/1&MeRpdkL13':
     $user = new UserController;
     $user->login();
     $Page->connection();
