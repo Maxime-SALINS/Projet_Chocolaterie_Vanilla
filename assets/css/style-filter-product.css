@@ -2,7 +2,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
 
     .title-filter{
         font-size: smaller !important;
