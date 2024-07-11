@@ -39,6 +39,7 @@
     <?php else : ?>
         <?php if($name === "contact"):?>
             <script src="../../assets/js/validation/RegexContact.js"></script>
+            <script src="https://smtpjs.com/v3/smtp.js"></script>
         <?php endif;?>
         <script src="../../assets/js/validation/RegexNewsletter.js"></script>
     <?php endif; ?>

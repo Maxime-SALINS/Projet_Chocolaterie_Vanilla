@@ -129,18 +129,18 @@ form.addEventListener("submit", (e)=>{
             discribe : discribe,
         };
 
-        //Send Email
-    //     Email.send({
-    //         SecureToken : "5b822f3e-fb7a-47fb-afdb-c7d53d47472e",
-    //         To : "maxime.salins@gmail.com",
-    //         From : "maxime.salins@gmail.com",
-    //         Subject : infoContact.sujet,
-    //         Body : "Nom: " + infoContact.name + " ,prenom: " + infoContact.prenom + " ,tel: " + infoContact.phone + " ,email: " + infoContact.email + " ,message: " + infoContact.discribe
-    //     }).then(
-    //         message => alert(message)
-    //     );
-    // } else {
-    //     //Sinon le programme lance une alert pour demander à l'utilisateur de rentrer correctement les champs du formulaire 
-    //     alert ("Tout les champs ne sont pas rentrés ou ne sont pas valide, mercie de rentrer correctement les champs du formulaire");
+        // Send Email
+        Email.send({
+            SecureToken : "a2052279-6489-4346-927f-74fd73b787dd",
+            To : "maxime.salins@gmail.com",
+            From : "maxime.salins@gmail.com",
+            Subject : infoContact.sujet,
+            Body : "Nom: " + infoContact.name + " ,prenom: " + infoContact.prenom + " ,tel: " + infoContact.phone + " ,email: " + infoContact.email + " ,message: " + infoContact.discribe
+        }).then(
+            message => alert(message)
+        );
+    } else {
+        //Sinon le programme lance une alert pour demander à l'utilisateur de rentrer correctement les champs du formulaire 
+        alert ("Tout les champs ne sont pas rentrés ou ne sont pas valide, mercie de rentrer correctement les champs du formulaire");
     }
 });
