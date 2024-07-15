@@ -78,4 +78,16 @@ class PageManager extends DatabaseManager {
 
         return true;
     }
+
+    public function findElementsById(int $id):array
+    {
+        $sql = "SELECT * FROM `content`WHERE element_id=:element_id";
+
+        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt->bindValue(':element_id', $id, PDO::PARAM_INT);
+
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

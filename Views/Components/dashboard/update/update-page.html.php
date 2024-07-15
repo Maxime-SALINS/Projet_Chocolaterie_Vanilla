@@ -23,5 +23,10 @@
                 <?= $msg_error ?>
             </div>
         <?php endif; ?>
+        <?php if (isset($msg_success)) : ?>
+            <div class="alert alert-success">
+                <?= $msg_success ?>
+            </div>
+        <?php endif; ?>
     </form>
 </section>

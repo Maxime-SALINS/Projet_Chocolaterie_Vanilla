@@ -203,7 +203,7 @@ class PageController extends AbstractController {
                     $image_page = $_FILES['image_page']['name'];
 
                     //image infos :
-                    $tmpName = $_FILES['image_product']['tmp_name'];
+                    $tmpName = $_FILES['image_page']['tmp_name'];
 
                     //Get extension of image :
                     $imgExtension = pathinfo($image_page, PATHINFO_EXTENSION);
@@ -225,17 +225,38 @@ class PageController extends AbstractController {
                             'elements' => $elements,
                             'msg_error' => $msg_error
                         ], 'dashboard',$file);
-                    } else {
-                        $newQuery = new PageManager;
-                    
-                        move_uploaded_file($tmpName, 'assets/images/carousel-n1/'. $image_page);
                         
-                        $value = "/assets/images/carousel-n1/" . $image_page;
-                        $id = $_GET['id'];
+                    } else {
+
+                        $id = htmlspecialchars($_GET['id']);
+                        $newQuery = new PageManager;
+
+                        $oldImage = $newQuery->findElementsById($id);
+                        $pathImageFull = $oldImage['content'];
+                        $directory = dirname($pathImageFull) . '/';
+                        
+                        if ($directory[0] === '/') {
+                            $directory = substr($directory, 1);
+                        }
+                        
+                        move_uploaded_file($tmpName, $directory . $image_page);
+                        
+                        $directory = dirname($pathImageFull) . '/';
+                        $value = $directory.$image_page;
     
                         $newQuery->updateContent($value, $id);
                         
-                        $this->redirect('/dashboard/contenu?page_name=Accueil');
+                        $msg_success = "L'image a été mise à jour";
+                        
+                        $elements = $newQuery->findAllPage();
+
+                        $this->render($path, [
+                            'title' => 'Dashboard',
+                            'first_title' => 'Dashboard administrateur',
+                            'name' => 'dashboard',
+                            'elements' => $elements,
+                            'msg_success' => $msg_success
+                        ], 'dashboard',$file);
                     }
                 } elseif (!empty($_POST['text'])){
 

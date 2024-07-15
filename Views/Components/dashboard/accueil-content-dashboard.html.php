@@ -17,7 +17,13 @@
                     <th scope="row"><?= $page_element['element_id'] ?></th>
                     <td><?= $page_element['page_name'] ?></td>
                     <td><?= $page_element['element_type'] ?></td>
-                    <td><?= $page_element['content'] ?></td>
+                    <td class="w-50">
+                        <?php if($page_element['element_type'] === 'image'): ?>
+                            <img class="img-fluid" src="<?= $page_element['content'] ?>" alt="image base de données">
+                        <?php else:?>
+                            <?= $page_element['content'] ?>
+                        <?php endif;?>
+                    </td>
                     <td>
                         <a class="btn btn-success" href="/dashboard/contenu/update?id=<?= $page_element['element_id']?>&element_type=<?= $page_element['element_type']?>">
                             <i class="bi bi-pencil-fill"></i>
