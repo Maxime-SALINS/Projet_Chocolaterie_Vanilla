@@ -25,22 +25,22 @@ class Page {
                     $this->setFirstTitle($element['content']);
                     break;
                 case 'image':
-                    $this->setElement($this->images, $element['content'], $element['element_position']);
+                    $this->setElement($this->images, $element['content'], $element['elements_position']);
                     break;
                 case 'h2':
-                    $this->setElement($this->secondTitles, $element['content'], $element['element_position']);
+                    $this->setElement($this->secondTitles, $element['content'], $element['elements_position']);
                     break;
                 case 'h3':
-                    $this->setElement($this->thirdTitles, $element['content'], $element['element_position']);
+                    $this->setElement($this->thirdTitles, $element['content'], $element['elements_position']);
                     break;
                 case 'text':
-                    $this->setElement($this->texts, $element['content'], $element['element_position']);
+                    $this->setElement($this->texts, $element['content'], $element['elements_position']);
                     break;
                 case 'meta description':
                     $this->setMetaDescription($element['content']);
                     break;
                 case 'alt':
-                    $this->setElement($this->alts, $element['content'], $element['element_position']);
+                    $this->setElement($this->alts, $element['content'], $element['elements_position']);
                     break;
             }
         }

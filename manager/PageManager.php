@@ -7,12 +7,12 @@ class PageManager extends DatabaseManager {
     
     public function findElements(string $page_name):array
     {
-        $sql = "SELECT page_name, e.element_type, e.element_position, c.content
-        FROM `pages` p 
-        INNER JOIN `elements` e 
-        ON p.page_id = e.page_id 
-        JOIN `content` c 
-        ON e.element_id = c.element_id 
+        $sql = "SELECT p.page_name, e.element_type, pe.elements_position, pe.content
+        FROM `pages_has_elements` pe
+        INNER JOIN `pages` p 
+        ON pe.idPages = p.idPages 
+        JOIN `elements` e 
+        ON pe.idElements = e.idElements
         WHERE page_name = :page_name";
 
         $stmt = $this->getDatabase()->prepare($sql);
@@ -24,14 +24,14 @@ class PageManager extends DatabaseManager {
 
     public function findElementsDash(string $page_name): array
     {
-        $sql = "SELECT page_name, e.element_id, e.element_type, e.element_position, c.content
-        FROM `pages` p 
-        INNER JOIN `elements` e 
-        ON p.page_id = e.page_id 
-        JOIN `content` c 
-        ON e.element_id = c.element_id 
+        $sql = "SELECT p.page_name, e.idElements, e.element_type, pe.elements_position, pe.content
+        FROM `pages_has_elements` pe 
+        INNER JOIN `pages` p 
+        ON pe.idPages = p.idPages
+        JOIN `elements` e 
+        ON pe.idElements = e.idElements
         WHERE page_name = :page_name
-        AND e.element_type != 'meta description'"; 
+        AND e.element_type != 'meta description'";
 
         $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindValue(':page_name', $page_name, PDO::PARAM_STR);
@@ -52,12 +52,12 @@ class PageManager extends DatabaseManager {
 
     public function findMetaDescription():array
     {
-        $sql = "SELECT page_name, e.element_id, e.element_type, c.content
-        FROM `pages` p 
-        INNER JOIN `elements` e 
-        ON p.page_id = e.page_id 
-        JOIN `content` c 
-        ON e.element_id = c.element_id
+        $sql = "SELECT p.page_name, e.element_type, pe.elements_position, pe.content
+        FROM `pages_has_elements` pe
+        INNER JOIN `pages` p 
+        ON pe.idPages = p.idPages 
+        JOIN `elements` e 
+        ON pe.idElements = e.idElements
         WHERE e.element_type = 'meta description'";
 
         $stmt = $this->getDatabase()->prepare($sql);
@@ -68,11 +68,11 @@ class PageManager extends DatabaseManager {
 
     public function updateContent(string $value, int $id):bool
     {
-        $sql = "UPDATE content SET content=:content WHERE element_id=:element_id";
+        $sql = "UPDATE `pages_has_elements` SET content=:content WHERE idElements=:idElements";
 
         $stmt = $this->getDatabase()->prepare($sql);
         $stmt->bindValue(':content', $value, PDO::PARAM_STR);
-        $stmt->bindValue(':element_id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':idElements', $id, PDO::PARAM_INT);
 
         $stmt->execute();
 
@@ -81,10 +81,10 @@ class PageManager extends DatabaseManager {
 
     public function findElementsById(int $id):array
     {
-        $sql = "SELECT * FROM `content`WHERE element_id=:element_id";
+        $sql = "SELECT * FROM `pages_has_elements` WHERE idElements=:idElements";
 
         $stmt = $this->getDatabase()->prepare($sql);
-        $stmt->bindValue(':element_id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':idElements', $id, PDO::PARAM_INT);
 
         $stmt->execute();
 

@@ -7,9 +7,9 @@ class UserManager extends DatabaseManager{
 
     public function findUser(string $email, string $password):bool
     {
-        $sql = "SELECT * FROM user WHERE email = :email";
+        $sql = "SELECT * FROM user WHERE user_email = :user_email";
         $stmt = $this->getDatabase()->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':user_email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
         $user = $stmt->fetch(PDO::FETCH_OBJ);
@@ -28,15 +28,15 @@ class UserManager extends DatabaseManager{
 
     public function setUserSession($user)
     {
-        $sql = "UPDATE user SET lastLogin = NOW() WHERE id=:id";
+        $sql = "UPDATE user SET lastLogin = NOW() WHERE idUser=:idUser";
         $stmt = $this->getDatabase()->prepare($sql);
-        $stmt->bindParam(':id', $user->id, PDO::PARAM_INT);
+        $stmt->bindParam(':idUser', $user->id, PDO::PARAM_INT);
 
         $stmt->execute();
 
         $_SESSION['id'] = $user->id;
         $_SESSION['name'] = $user->username;
-        $_SESSION['email'] = $user->email;
+        $_SESSION['user_email'] = $user->email;
         $_SESSION['role'] = $user->role;
         $_SESSION['connecte'] = 1;
     }
