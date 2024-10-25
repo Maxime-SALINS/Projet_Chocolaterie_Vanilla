@@ -3,7 +3,7 @@
 spl_autoload_register(function ($class) {
     // Convert the namespace to the file path
     $prefix = 'App\\';
-    $base_dir = __DIR__ . '/';
+    $base_dir = __DIR__ . '/src/';
 
     // Does the class use the namespace prefix?
     $len = strlen($prefix);

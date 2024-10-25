@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class Page {
+class PageModel {
 
     private $title;
     private $firstTitle;

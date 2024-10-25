@@ -3,6 +3,7 @@ namespace App\controller;
 
 use App\model\NewsletterModel;
 use App\manager\NewsletterManager;
+use Utils\UtilsController\AbstractController;
 
 class NewsletterController extends AbstractController{
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\model;
 
-class User {
+class UserModel {
 
     private $id;
     private $username;

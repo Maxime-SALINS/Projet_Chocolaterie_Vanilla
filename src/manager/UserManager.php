@@ -2,13 +2,14 @@
 namespace App\manager;
 
 use \PDO;
+use Utils\Database\Database;
 
-class UserManager extends DatabaseManager{
+class UserManager{
 
     public function findUser(string $email, string $password):bool
     {
         $sql = "SELECT * FROM user WHERE user_email = :user_email";
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':user_email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -29,14 +30,14 @@ class UserManager extends DatabaseManager{
     public function setUserSession($user)
     {
         $sql = "UPDATE user SET lastLogin = NOW() WHERE idUser=:idUser";
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindParam(':idUser', $user->id, PDO::PARAM_INT);
 
         $stmt->execute();
 
         $_SESSION['id'] = $user->id;
-        $_SESSION['name'] = $user->username;
-        $_SESSION['user_email'] = $user->email;
+        $_SESSION['name'] = $user->user_name;
+        $_SESSION['user_email'] = $user->user_email;
         $_SESSION['role'] = $user->role;
         $_SESSION['connecte'] = 1;
     }
@@ -45,7 +46,7 @@ class UserManager extends DatabaseManager{
     {
         $sql = "UPDATE user SET password = :password WHERE username = :username";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
 
@@ -56,7 +57,7 @@ class UserManager extends DatabaseManager{
     {
         $sql = "UPDATE user SET email = :email, password = :password WHERE username = :username";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);
@@ -68,7 +69,7 @@ class UserManager extends DatabaseManager{
     {
         $sql = "UPDATE user SET username = :username, email = :email, password = :password WHERE id = :id";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
         $stmt->bindValue(':username', $username, PDO::PARAM_STR);

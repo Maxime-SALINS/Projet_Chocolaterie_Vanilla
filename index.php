@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require_once 'autoload.php';
+require_once __DIR__ . '/utils/autoload_utils.php';
 
 use App\controller\PageController;
 use App\controller\UserController;
@@ -32,7 +33,7 @@ switch ($uri) {
     $newProduct->showOne($_GET['product_id']);
     break;
   
-  case '/1&MeRpdkL13':
+  case '/login':
     $user = new UserController;
     $user->login();
     $Page->connection();

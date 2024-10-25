@@ -2,8 +2,9 @@
 namespace App\manager;
 
 use \PDO;
+use Utils\Database\Database;
 
-class PageManager extends DatabaseManager {
+class PageManager{
     
     public function findElements(string $page_name):array
     {
@@ -15,7 +16,7 @@ class PageManager extends DatabaseManager {
         ON pe.idElements = e.idElements
         WHERE page_name = :page_name";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':page_name', $page_name, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -33,7 +34,7 @@ class PageManager extends DatabaseManager {
         WHERE page_name = :page_name
         AND e.element_type != 'meta description'";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':page_name', $page_name, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -44,7 +45,7 @@ class PageManager extends DatabaseManager {
     {
         $sql = "SELECT * FROM pages LIMIT 4";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -60,7 +61,7 @@ class PageManager extends DatabaseManager {
         ON pe.idElements = e.idElements
         WHERE e.element_type = 'meta description'";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -70,7 +71,7 @@ class PageManager extends DatabaseManager {
     {
         $sql = "UPDATE `pages_has_elements` SET content=:content WHERE idElements=:idElements";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':content', $value, PDO::PARAM_STR);
         $stmt->bindValue(':idElements', $id, PDO::PARAM_INT);
 
@@ -83,7 +84,7 @@ class PageManager extends DatabaseManager {
     {
         $sql = "SELECT * FROM `pages_has_elements` WHERE idElements=:idElements";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':idElements', $id, PDO::PARAM_INT);
 
         $stmt->execute();

@@ -16,7 +16,7 @@
                             <h3 class="titre-tertiary my-3"><?= $product_element['product_name']?></h3>
                             <img class="card-img-top rounded" src="<?= $product_element['image_product']?>" alt="image produit chocolat">
                             <div class="d-flex justify-content-center">
-                                <a class="btn btn-product btn-product-small text-white my-3" href="/produit/detail?product_id=<?= $product_element['product_id']?>">En savoir plus</a>
+                                <a class="btn btn-product btn-product-small text-white my-3" href="/produit/detail?product_id=<?= $product_element['idProduct']?>">En savoir plus</a>
                             </div>
                         </div>
                     </div>

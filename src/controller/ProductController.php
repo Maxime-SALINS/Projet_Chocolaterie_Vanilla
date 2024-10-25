@@ -3,9 +3,10 @@ namespace App\controller;
 
 use App\model\ProductModel;
 use App\manager\ProductManager;
-use App\Model\Page;
 use App\manager\PageManager;
 use App\controller\NewsletterController;
+use App\Model\PageModel;
+use Utils\UtilsController\AbstractController;
 
 class ProductController extends AbstractController {
 
@@ -37,7 +38,7 @@ class ProductController extends AbstractController {
         $elements = $productPage->findElements('Produits');
         $newsletterStatus = $newsQuery->newsletterSubscription();
         
-        $newPage = new Page($elements);
+        $newPage = new PageModel($elements);
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             
@@ -88,7 +89,7 @@ class ProductController extends AbstractController {
         $elements = $productPage->findElements('Produits');
         $newsletterStatus = $newsQuery->newsletterSubscription();
 
-        $newPage = new Page($elements);
+        $newPage = new PageModel($elements);
 
         $this->render('product-detail', array_merge([
             'newPage' => $newPage,

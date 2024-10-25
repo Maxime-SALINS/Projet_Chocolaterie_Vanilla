@@ -1,9 +1,10 @@
 <?php
 namespace App\controller;
 
-use App\model\Page;
+use App\model\PageModel;
 use App\manager\PageManager;
 use App\controller\NewsletterController;
+use Utils\UtilsController\AbstractController;
 
 
 class PageController extends AbstractController {
@@ -13,7 +14,7 @@ class PageController extends AbstractController {
         $homePage = new PageManager;
         $elements = $homePage->findElements('Accueil');
 
-        $newPage = new Page($elements);
+        $newPage = new PageModel($elements);
 
         $newsQuery = new NewsletterController;
         $newsletterStatus = $newsQuery->newsletterSubscription();
@@ -42,7 +43,7 @@ class PageController extends AbstractController {
     {
         $storyPage = new PageManager;
         $elements = $storyPage->findElements('Histoire');
-        $newPage = new Page($elements);
+        $newPage = new PageModel($elements);
         
         $newsQuery = new NewsletterController;
         $newsletterStatus = $newsQuery->newsletterSubscription();

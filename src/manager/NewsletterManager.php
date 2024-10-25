@@ -2,15 +2,15 @@
 namespace App\manager;
 
 use \PDO;
-use App\manager\DatabaseManager;
+use Utils\Database\Database;
 
-class NewsletterManager extends DatabaseManager {
+class NewsletterManager {
 
     public function findAll():array
     {
         $sql = "SELECT * FROM newsletter";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -20,7 +20,7 @@ class NewsletterManager extends DatabaseManager {
     {
         $sql ="SELECT * FROM newsletter WHERE email=:email";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
@@ -38,7 +38,7 @@ class NewsletterManager extends DatabaseManager {
         $newData = array($email);
 
         $sql ="INSERT INTO newsletter(`email`) VALUES (?)";
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->execute($newData);
 
         return true;
@@ -48,7 +48,7 @@ class NewsletterManager extends DatabaseManager {
     {
         $sql = "DELETE FROM newsletter WHERE email = :email";
 
-        $stmt = $this->getDatabase()->prepare($sql);
+        $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 

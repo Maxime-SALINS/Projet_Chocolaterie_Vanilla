@@ -1,8 +1,9 @@
 <?php
 namespace App\controller;
 
-use App\model\User;
+use App\model\UserModel;
 use App\manager\UserManager;
+use Utils\UtilsController\AbstractController;
 
 class UserController extends AbstractController {
 
@@ -12,7 +13,7 @@ class UserController extends AbstractController {
 
             if(!empty($_POST['email']) && !empty($_POST['password'])){
 
-                $user = new User;
+                $user = new UserModel;
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
 
@@ -67,7 +68,7 @@ class UserController extends AbstractController {
 
             if (empty($_POST['username']) && empty($_POST['email']) && !empty($_POST['password'])){
 
-                $user = new User;
+                $user = new UserModel;
                 $user->setUsername($_SESSION['name']);
                 $user->setPassword($_POST['password']);
 
@@ -79,7 +80,7 @@ class UserController extends AbstractController {
 
             } elseif (empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
 
-                $user = new User;
+                $user = new UserModel;
                 $user->setUsername($_SESSION['name']);
                 $user->setEmail($_POST['email']);
                 $user->setPassword($_POST['password']);
@@ -93,7 +94,7 @@ class UserController extends AbstractController {
 
             } elseif (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password'])){
 
-                $user = new User;
+                $user = new UserModel;
                 $user->setId($_SESSION['id']);
                 $user->setUsername($_POST['username']);
                 $user->setEmail($_POST['email']);
