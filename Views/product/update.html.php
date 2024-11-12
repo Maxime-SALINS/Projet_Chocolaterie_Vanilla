@@ -1,5 +1,5 @@
 <section class="container w-50 my-5">
-    <h2 class="text-uppercase text-center">Ajouter un nouveau produits</h2>
+    <h2 class="text-uppercase text-center">modification du produit n°<?=$_GET['idProduct']?></h2>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="contanier g-0 my-4">
             <input class="form-control" type="text" name="product_name" id="product_name" placeholder="Entrez le nom du produit">
@@ -12,15 +12,8 @@
             <label for="description" class="form-label">Description du produit</label>
             <textarea class="form-control" name="description" id="description" rows="8"></textarea>
         </div>
-        <div class="container g-0 my-4">
-            <select class="form-select" aria-label="selection de la categorie" name="category" id="category">
-                <?php foreach ($categorys as $category) : ?>
-                    <option value="<?= $category['category_id'] ?>"><?= $category['category_name'] ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
         <div class="d-flex justify-content-center my-2">
-            <button class="btn btn-primary" type="submit">Ajouter</button>
+            <button class="btn btn-success" type="submit">Modifier</button>
         </div>
         <?php if (isset($msg_error)) : ?>
             <div class="alert alert-danger">

@@ -10,24 +10,7 @@ use Utils\UtilsController\AbstractController;
 
 class ProductController extends AbstractController {
 
-    public function viewProductDash(string $path, string $files)
-    {
-        $dashboardPage = new PageManager;
-        $elements = $dashboardPage->findAllPage();
-
-        $tableSql = new ProductManager;
-        $product_elements = $tableSql->findAll();
-
-        $this->render($path, [
-            'title' => 'Dashboard',
-            'first_title' => 'Dashboard administrateur',
-            'name' => 'dashboard',
-            'elements' => $elements,
-            'product_elements'=>$product_elements
-        ], 'dashboard',$files);
-    }
-
-    public function viewAll()
+    public function index()
     {
         $newProduct = new ProductModel;
         $tableSql = new ProductManager;
@@ -68,7 +51,7 @@ class ProductController extends AbstractController {
             }
         }
 
-        $this->render('product-list', array_merge([
+        $this->render('/product/product-list.html.php', array_merge([
             'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'product_elements' => $product_elements,
@@ -77,7 +60,7 @@ class ProductController extends AbstractController {
 
     }
 
-    public function showOne(int $product_id)
+    public function show(int $product_id)
     {
         $newProduct = new ProductModel;
         $tableSql = new ProductManager;
@@ -91,12 +74,29 @@ class ProductController extends AbstractController {
 
         $newPage = new PageModel($elements);
 
-        $this->render('product-detail', array_merge([
+        $this->render('/product/product-detail.html.php', array_merge([
             'newPage' => $newPage,
             'title_default' => 'Page | Chocolaterie',
             'product_element' => $product_element,
             'name' => 'product'
         ], $newsletterStatus));
+    }
+
+    public function viewDashboard()
+    {
+        $dashboardPage = new PageManager;
+        $elements = $dashboardPage->findAllPage();
+
+        $tableSql = new ProductManager;
+        $product_elements = $tableSql->findAll();
+
+        $this->render('/product/product-dashboard.html.php', [
+            'title' => 'Dashboard',
+            'first_title' => 'Dashboard administrateur',
+            'name' => 'dashboard',
+            'elements' => $elements,
+            'product_elements'=>$product_elements
+        ], 'dashboard.html.php');
     }
 
     public function getCategory():array 
@@ -106,7 +106,7 @@ class ProductController extends AbstractController {
         return $tableSql->findCategory();
     }
 
-    public function createProduct(string $path, string $files)
+    public function new()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -147,14 +147,14 @@ class ProductController extends AbstractController {
                         $dashboardPage = new PageManager;
                         $elements = $dashboardPage->findAllPage();
 
-                        $this->render($path, [
+                        $this->render('/product/new.html.php', [
                             'title' => 'Dashboard',
                             'first_title' => 'Dashboard administrateur',
                             'name' => 'dashboard',
                             'elements' => $elements,
                             'categorys' => $this->getCategory(),
                             'msg_error' => $msg_error
-                        ], 'dashboard',$files);
+                        ], 'dashboard.html.php');
 
                     } else {
                         
@@ -172,14 +172,14 @@ class ProductController extends AbstractController {
                     $dashboardPage = new PageManager;
                     $elements = $dashboardPage->findAllPage();
 
-                    $this->render($path, [
+                    $this->render('/product/new.html.php', [
                         'title' => 'Dashboard',
                         'first_title' => 'Dashboard administrateur',
                         'name' => 'dashboard',
                         'elements' => $elements,
                         'categorys' => $this->getCategory(),
                         'msg_error' => $msg_error
-                    ], 'dashboard',$files);
+                    ], 'dashboard.html.php');
                 }
             } else {
                 $msg_error = "Vueillez remplir tous les champs";
@@ -187,30 +187,30 @@ class ProductController extends AbstractController {
                 $dashboardPage = new PageManager;
                 $elements = $dashboardPage->findAllPage();
 
-                $this->render($path, [
+                $this->render('/product/new.html.php', [
                     'title' => 'Dashboard',
                     'first_title' => 'Dashboard administrateur',
                     'name' => 'dashboard',
                     'elements' => $elements,
                     'categorys' => $this->getCategory(),
                     'msg_error' => $msg_error
-                ], 'dashboard',$files);
+                ], 'dashboard.html.php');
             }
         }
 
         $dashboardPage = new PageManager;
         $elements = $dashboardPage->findAllPage();
 
-        $this->render($path, [
+        $this->render('/product/new.html.php', [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
             'elements' => $elements,
             'categorys' => $this->getCategory()
-        ], 'dashboard',$files);
+        ], 'dashboard.html.php');
     }
 
-    public function updateProduct(string $path, string $files)
+    public function update()
     {
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -245,13 +245,13 @@ class ProductController extends AbstractController {
                     $dashboardPage = new PageManager;
                     $elements = $dashboardPage->findAllPage();
 
-                    $this->render($path, [
+                    $this->render('/product/update.html.php', [
                         'title' => 'Dashboard',
                         'first_title' => 'Dashboard administrateur',
                         'name' => 'dashboard',
                         'elements' => $elements,
                         'msg_error' => $msg_error
-                    ], 'dashboard',$files);
+                    ], 'dashboard.html.php');
                 } else {
                     $newQuery = new ProductManager;
                     
@@ -269,28 +269,28 @@ class ProductController extends AbstractController {
                 $dashboardPage = new PageManager;
                 $elements = $dashboardPage->findAllPage();
 
-                $this->render($path, [
+                $this->render('/product/update.html.php', [
                     'title' => 'Dashboard',
                     'first_title' => 'Dashboard administrateur',
                     'name' => 'dashboard',
                     'elements' => $elements,
                     'msg_error' => $msg_error
-                ], 'dashboard',$files);
+                ], 'dashboard.html.php');
             }
         }
 
         $dashboardPage = new PageManager;
         $elements = $dashboardPage->findAllPage();
 
-        $this->render($path, [
+        $this->render('/product/update.html.php', [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
             'elements' => $elements,
-        ], 'dashboard',$files);
+        ], 'dashboard.html.php');
     }
 
-    public function deleteProduct(int $product_id)
+    public function delete(int $product_id)
     {
         $newQuery = new ProductManager;
         $newQuery->delete($product_id);

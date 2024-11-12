@@ -6,148 +6,43 @@ if (session_status() === PHP_SESSION_NONE) {
 require_once 'autoload.php';
 require_once __DIR__ . '/utils/autoload_utils.php';
 
-use App\controller\PageController;
-use App\controller\UserController;
-use App\controller\NewsletterController;
-use App\controller\ProductController;
+use Utils\Routing\Router;
 
-$Page = new PageController();
-$newProduct = new ProductController;
+$url = $_SERVER['REQUEST_URI'];
+$router = new Router($url);
 
-$uri = $_SERVER['REQUEST_URI'];
+//Routing systeme
 
-switch ($uri) {
-  case '/contact':
-    $Page->contact();
-    break;
+//Home page
+$router->get('/', "Home#index");
 
-  case '/histoire':
-    $Page->story();
-    break;
+//Story page
+$router->get('/histoire', "Story#index");
 
-  case '/produits':
-    $newProduct->viewAll();
-    break;
+//Contact page
+$router->get('/contact', "Contact#index");
 
-  case '/produit/detail?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
-    $newProduct->showOne($_GET['product_id']);
-    break;
-  
-  case '/login':
-    $user = new UserController;
-    $user->login();
-    $Page->connection();
-    break;
+//Product page
+$router->get('/produits', "Product#index");
+$router->post('/produits', "Product#index");
+$router->get('/produit/detail/:product_id', "Product#show")->with('product_id', '[0-9]+');
 
-  case '/dashboard':
-    $path = 'home-dashboard';
-    $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
-    break;
-  
-  case '/dashboard/profil':
-    $path = 'profil-dashboard';
-    $file = "Components/dashboard/";
-    $Page->dashboard($path, $file);
-    $user = new UserController;
-    $user->updateProfil();
-    break;
+//Login page
+$router->get('/login', "Login#index");
+$router->post('/login', "Login#login");
 
-  case '/dashboard/statistique':
-    $path = 'stat-dashboard';
-    $file = "Components/dashboard/";
-    $Page->dashboard($path,$file);
-    break;
+//logout
+$router->get('/logout', "Login#logout");
 
-  case '/dashboard/referencement':
-    $path = 'seo-dashboard';
-    $file = "Components/dashboard/";
-    $Page->viewDashSeo($path, $file);
-    break;
-  
-  case '/dashboard/referencement/modification?id='.(isset($_GET['id']) ? $_GET['id'] : '' ):
-    $path = 'update-seo';
-    $file = "Components/dashboard/update/";
-    $Page->viewDashSeo($path, $file);
-    break;
+//Dashboard
+$router->get('/dashboard', "Home#dashboard");
+$router->get('/dashboard/produits', "Product#viewDashboard");
+$router->get('/dashboard/produits/ajout-produit', "Product#new");
+$router->get('/dashboard/produit/modification/:idProduct', "Product#update")->with('idProduct', '[0-9]+');
+$router->get('/dashboard/produit/supprimer/:idProduct', "Product#delete")->with('idProduct', '[0-9]+');
+$router->post('/dashboard/produits/ajout-produit', "Product#new");
 
-  case '/dashboard/produits':
-    $path = 'product-dashboard';
-    $file = "Components/dashboard/";
-    $newProduct->viewProductDash($path, $file);
-    break;
-  
-  case '/dashboard/produit/ajout-produit':
-    $path = 'create-product';
-    $file = "Components/dashboard/create/";
-    $newProduct->createProduct($path, $file);
-    break;
+//Error 404 page
+$router->get('/404', "ErrorPage#index");
 
-  case '/dashboard/produit/modification?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
-    $path = 'update-product';
-    $file = "Components/dashboard/update/";
-    $newProduct->updateProduct($path, $file);
-    break;
-
-  case '/dashboard/produit/supprimer?product_id='.(isset($_GET['product_id']) ? $_GET['product_id'] : '' ):
-    $newProduct->deleteProduct($_GET['product_id']);
-    break;
-  
-  case '/dashboard/contenu?page_name=Accueil':
-    $path = 'accueil-content-dashboard';
-    $file = "Components/dashboard/";
-    $page_name = "Accueil";
-    $Page->viewDashPage($page_name,$path, $file);
-    break;
-  
-  case '/dashboard/contenu?page_name=Histoire':
-    $path = 'story-content-dashboard';
-    $file = "Components/dashboard/";
-    $page_name = "Histoire";
-    $Page->viewDashPage($page_name,$path, $file);
-    break;
-  
-  case '/dashboard/contenu?page_name=Produits':
-    $path = 'product-content-dashboard';
-    $file = "Components/dashboard/";
-    $page_name = "Produits";
-    $Page->viewDashPage($page_name,$path, $file);
-    break;
-  
-  case '/dashboard/contenu?page_name=Contact':
-    $path = 'contact-content-dashboard';
-    $file = "Components/dashboard/";
-    $page_name = "Contact";
-    $Page->viewDashPage($page_name,$path, $file);
-    break;
-
-  case '/dashboard/contenu/update?id='.(isset($_GET['id']) ? $_GET['id'] : '').'&element_type='.(isset($_GET['element_type']) ? $_GET['element_type'] : ''):
-    $path = 'update-page';
-    $file = "Components/dashboard/update/";
-    $Page->updateElementsPage($path, $file);
-    break;
-
-  case '/dashboard/newsletter':
-    $path = 'newsletter-dashboard';
-    $file = "Components/dashboard/";
-    $Page->viewDashNewsletter($path, $file);
-    break;
-
-  case '/dashboard/newsletter/delete?email='.(isset($_GET['email']) ? $_GET['email'] : '' ):
-    $deleteSub = new NewsletterController;
-    $deleteSub->deleteSubscriber($_GET['email']);
-    break;
-    
-  case '/logout':
-    $user = new UserController;
-    $user->logout();
-    break;
-  
-  case '/404':
-    $Page->error();
-    break;
-  
-  default:
-    $Page->index();
-    break;
-}
+$router->run();

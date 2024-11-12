@@ -16,9 +16,9 @@
 </head>
 
 <body>
-    <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/Components/dashboard/headerDashboard.html.php';?>
+    <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/views/dashboard/headerDashboard.html.php';?>
     <main class="row">
-        <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/Components/dashboard/menuDashboard.html.php';?>
+        <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/views/dashboard/menuDashboard.html.php';?>
         <section class="col-10 bg-body-secondary p-3">
             <?= $content ?>
         </section>

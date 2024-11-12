@@ -19,14 +19,16 @@
 
 <body>
     <?php
-        if ($name !== "login") {
-            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/header.php';
+        if($name !== 'login'){
+            
+            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/views/Components/header.php';
         }
     ?>
     <?= $content ?>
     <?php
-        if ($name !== "login") {
-            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/Components/footer.php';
+        if($name !== 'login'){
+
+            require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/views/Components/footer.php';
         }
     ?>
 
