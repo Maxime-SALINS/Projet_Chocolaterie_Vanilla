@@ -53,7 +53,7 @@ class PageManager{
 
     public function findMetaDescription():array
     {
-        $sql = "SELECT p.page_name, e.element_type, pe.elements_position, pe.content
+        $sql = "SELECT pe.id, p.page_name, e.element_type, pe.elements_position, pe.content
         FROM `pages_has_elements` pe
         INNER JOIN `pages` p 
         ON pe.idPages = p.idPages 

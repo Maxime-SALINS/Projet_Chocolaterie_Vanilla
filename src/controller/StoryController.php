@@ -4,7 +4,7 @@ namespace App\controller;
 
 use App\model\PageModel;
 use App\manager\PageManager;
-use App\controller\NewsletterController;
+use App\service\NewsletterService;
 use Utils\UtilsController\AbstractController;
 
 class StoryController extends AbstractController {
@@ -15,7 +15,7 @@ class StoryController extends AbstractController {
         $elements = $storyPage->findElements('Histoire');
         $newPage = new PageModel($elements);
         
-        $newsQuery = new NewsletterController;
+        $newsQuery = new NewsletterService;
         $newsletterStatus = $newsQuery->newsletterSubscription();
 
         $this->render('/story/story.html.php', array_merge([

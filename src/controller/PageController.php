@@ -3,77 +3,13 @@ namespace App\controller;
 
 use App\model\PageModel;
 use App\manager\PageManager;
-use App\controller\NewsletterController;
+use App\service\NewsletterService;
 use Utils\UtilsController\AbstractController;
 
 
 class PageController extends AbstractController {
 
-    public function viewDashSeo(string $path, string $file)
-    {
-
-        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
-
-            $this->redirect('/');
-            exit();
-        
-        } else {
-
-            if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-                if (!empty($_POST['meta_description'])){
-
-                    $newMeta = htmlspecialchars($_POST['meta_description']);
-                    $id = $_GET['id'];
-                    $newSQL = new PageManager;
-
-                    if($newSQL->updateContent($newMeta, $id)){
-
-                        $this->redirect('/dashboard/referencement');
-                    }
-                }
-            }
-
-            $dashboardPage = new PageManager;
-            $elements = $dashboardPage->findAllPage();
-            $seo_elements = $dashboardPage->findMetaDescription();
-
-            $this->render($path, [
-                'title' => 'Dashboard',
-                'first_title' => 'Dashboard administrateur',
-                'name' => 'dashboard',
-                'elements' => $elements,
-                'seo_elements'=>$seo_elements
-            ], 'dashboard',$file);
-
-        }
-    }
-
-    public function viewDashNewsletter(string $path, string $file)
-    {
-        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
-
-            $this->redirect('/');
-            exit();
-
-        } else {
-            $dashboardPage = new PageManager;
-            $elements = $dashboardPage->findAllPage();
-
-            $newletter = new NewsletterController;
-            $news_elements = $newletter->viewAll();
-
-            $this->render($path, [
-                'title' => 'Dashboard',
-                'first_title' => 'Dashboard administrateur',
-                'name' => 'dashboard',
-                'elements' => $elements,
-                'news_elements' => $news_elements,
-            ], 'dashboard',$file);
-        }
-    }
-
-    public function viewDashPage(string $page_name, string $path, string $file)
+    public function viewDashPage(string $page_name)
     {
         if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
             $this->redirect('/');
@@ -83,7 +19,7 @@ class PageController extends AbstractController {
             $elements = $dashboardPage->findAllPage();
             $page_elements = $dashboardPage->findElementsDash($page_name);
 
-            $this->render($path, [
+            $this->render('', [
                 'title' => 'Dashboard',
                 'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard',

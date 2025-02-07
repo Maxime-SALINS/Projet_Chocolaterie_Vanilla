@@ -1,61 +1,44 @@
 <?php
+
 namespace App\controller;
 
-use App\model\NewsletterModel;
-use App\manager\NewsletterManager;
+use App\manager\PageManager;
+use App\service\NewsletterService;
 use Utils\UtilsController\AbstractController;
 
-class NewsletterController extends AbstractController{
+class NewsletterController extends AbstractController {
 
-    public function viewAll():array
+    public function index()
     {
-        $tableSql = new NewsletterManager;
-        $table_subscriber = $tableSql->findAll();
+        if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
+            $this->redirect('/');
+            exit();
+        } else {
+            $dashboardPage = new PageManager;
+            $elements = $dashboardPage->findAllPage();
 
-        return $table_subscriber;
-    }
+            $newsletterService = new NewsletterService;
+            $news_elements = $newsletterService->findAll();
 
-    public function newsletterSubscription()
-    {
-        $msg_success = $msg_error = $error = null;
-
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            
-            if(!empty($_POST['useremail_news'])){
-
-                $newSubscriber = new NewsletterModel;
-                $newSubscriber->setUserEmail($_POST['useremail_news']);
-                $subEmail = $newSubscriber->getUserEmail();
-
-                $newSQL = new NewsletterManager;
-
-                if($newSQL->findEmail($subEmail)) {
-                    $newSQL->uplaodSubscriber($subEmail);
-                    $msg_success = "Vous êtes abonné à la Newsletter";
-                } else {
-                    $msg_error = "Vous avez déjà souscrit un abonnement";
-                }
-            } else {
-                $error = "Vous devez remplir ce champ";
-            }
+            $this->render('/dashboard/newsletter-dashboard.html.php', [
+                'title' => 'Dashboard',
+                'first_title' => 'Dashboard administrateur',
+                'name' => 'dashboard',
+                'elements' => $elements,
+                'news_elements' => $news_elements
+            ], 'dashboard.html.php');
         }
-
-        return [
-            'msg_success' => $msg_success,
-            'msg_error' => $msg_error,
-            'error' => $error,
-        ];
     }
-    
-    public function deleteSubscriber(string $email) {
-        
-        $newSubscriber = new NewsletterModel;
-        $newSubscriber->setUserEmail($email);
-        $subEmail = $newSubscriber->getUserEmail();
 
-        $newSQL = new NewsletterManager;
-        $newSQL->delete($subEmail);
+    public function delete()
+    {
+        $email= $_GET['email'];
 
-        $this->redirect('/dashboard/newsletter');
+        $newsletterService = new NewsletterService;
+        $deleteNews = $newsletterService->deleteSubscriber($email);
+
+        if ($deleteNews){
+            $this->redirect('/dashboard/newsletter');
+        }
     }
 }

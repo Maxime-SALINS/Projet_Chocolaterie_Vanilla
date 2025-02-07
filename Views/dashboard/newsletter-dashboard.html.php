@@ -11,10 +11,10 @@
         <tbody>
             <?php foreach($news_elements as $news_element):?>
                 <tr>
-                    <th scope="row"><?=$news_element['id']?></th>
+                    <th scope="row"><?=$news_element['idNewsletter']?></th>
                     <td><?=$news_element['email']?></td>
                     <td>
-                        <a class="btn btn-danger" href="/dashboard/newsletter/delete?email=<?=$news_element['email']?>">
+                        <a class="btn btn-danger" href="/dashboard/newsletter/delete?email=<?=urlencode($news_element['email'])?>">
                             <i class="bi bi-trash3-fill"></i>
                         </a>
                     </td>

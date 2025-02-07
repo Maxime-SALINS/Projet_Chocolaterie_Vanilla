@@ -4,7 +4,7 @@ namespace App\controller;
 
 use App\model\PageModel;
 use App\manager\PageManager;
-use App\controller\NewsletterController;
+use App\service\NewsletterService;
 use Utils\UtilsController\AbstractController;
 
 class HomeController extends AbstractController
@@ -16,8 +16,8 @@ class HomeController extends AbstractController
 
         $page = new PageModel($elements);
 
-        $newsletterController = new NewsletterController;
-        $news = $newsletterController->newsletterSubscription();
+        $newsletterService = new NewsletterService;
+        $news = $newsletterService->newsletterSubscription();
 
         return $this->render('/home/home.html.php', array_merge([
             'newPage' => $page,
@@ -36,11 +36,15 @@ class HomeController extends AbstractController
             $dashboardPage = new PageManager;
             $elements = $dashboardPage->findAllPage();
 
+            $newsletterService = new NewsletterService;
+            $news_elements = $newsletterService->findAll();
+
             $this->render('/dashboard/home-dashboard.html.php', [
                 'title' => 'Dashboard',
                 'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard',
                 'elements' => $elements,
+                'news_elements' => $news_elements
             ], 'dashboard.html.php');
         }
     }

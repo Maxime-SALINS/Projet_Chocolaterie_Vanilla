@@ -1,5 +1,5 @@
 <section class="container w-50 my-5">
-    <h2 class="text-uppercase text-center">modification du produit n°<?=$_GET['idProduct']?></h2>
+    <h2 class="text-uppercase text-center">modification du produit</h2>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="contanier g-0 my-4">
             <input class="form-control" type="text" name="product_name" id="product_name" placeholder="Entrez le nom du produit">

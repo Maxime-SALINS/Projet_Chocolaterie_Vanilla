@@ -4,7 +4,7 @@ namespace App\controller;
 use App\model\ProductModel;
 use App\manager\ProductManager;
 use App\manager\PageManager;
-use App\controller\NewsletterController;
+use App\service\NewsletterService;
 use App\Model\PageModel;
 use Utils\UtilsController\AbstractController;
 
@@ -15,7 +15,7 @@ class ProductController extends AbstractController {
         $newProduct = new ProductModel;
         $tableSql = new ProductManager;
         $productPage = new PageManager;
-        $newsQuery = new NewsletterController;
+        $newsQuery = new NewsletterService;
         
         $product_elements = $tableSql->findAll();
         $elements = $productPage->findElements('Produits');
@@ -65,7 +65,7 @@ class ProductController extends AbstractController {
         $newProduct = new ProductModel;
         $tableSql = new ProductManager;
         $productPage = new PageManager;
-        $newsQuery = new NewsletterController;
+        $newsQuery = new NewsletterService;
         
         $newProduct->setId($product_id);
         $product_element = $tableSql->findOne($newProduct->getId());

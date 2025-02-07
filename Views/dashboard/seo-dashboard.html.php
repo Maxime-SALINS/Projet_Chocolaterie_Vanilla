@@ -13,12 +13,12 @@
         <tbody>
             <?php foreach ($seo_elements as $seo_element) : ?>
                 <tr>
-                    <th scope="row"><?= $seo_element['element_id'] ?></th>
+                    <th scope="row"><?= $seo_element['id'] ?></th>
                     <td><?= $seo_element['page_name'] ?></td>
                     <td><?= $seo_element['element_type'] ?></td>
                     <td><?= $seo_element['content'] ?></td>
                     <td>
-                        <a class="btn btn-success" href="/dashboard/referencement/modification?id=<?= $seo_element['element_id'] ?>">
+                        <a class="btn btn-success" href="/dashboard/referencement/modification/<?= $seo_element['id'] ?>">
                             <i class="bi bi-pencil-fill"></i>
                         </a>
                     </td>

@@ -1,6 +1,6 @@
 <h2 class="text-uppercase text-center">Référencement SEO</h2>
 <section class="container my-5">
-    <h3 class="text-center">Modification de la description n°<?= $_GET['id'] ?></h3>
+    <h3 class="text-center">Modification de la description de la page</h3>
     <form action="" method="post">
         <div class="mb-3">
             <label for="meta_description" class="form-label">Description</label>

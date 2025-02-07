@@ -7,7 +7,7 @@ use Utils\UtilsController\AbstractController;
 
 class UserController extends AbstractController {
 
-    public function updateProfil()
+    public function update()
     {
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
