@@ -51,6 +51,7 @@ $router->post('/dashboard/referencement/modification/:id', "Referencement#update
 $router->get('/dashboard/produits', "Product#viewDashboard");
 $router->get('/dashboard/produits/ajout-produit', "Product#new");
 $router->get('/dashboard/produit/modification/:idProduct', "Product#update")->with('idProduct', '[0-9]+');
+$router->post('/dashboard/produit/modification/:idProduct', "Product#update")->with('idProduct', '[0-9]+');
 $router->get('/dashboard/produit/supprimer/:idProduct', "Product#delete")->with('idProduct', '[0-9]+');
 $router->post('/dashboard/produits/ajout-produit', "Product#new");
 

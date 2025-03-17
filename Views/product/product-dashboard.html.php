@@ -1,10 +1,9 @@
 <h2 class="text-uppercase text-center">gestion des produits</h2>
-<a class="btn btn-primary" href="/dashboard/produits/ajout-produit">Ajouter un nouveau produit</a>
 <div class="container my-5">
-    <table class="table table-striped">
+    <a class="btn btn-primary" href="/dashboard/produits/ajout-produit"><i class="bi bi-plus-circle"></i></a>
+    <table class="table table-striped mt-2">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nom</th>
                 <th scope="col">Image</th>
                 <th scope="col">Description</th>
@@ -15,7 +14,6 @@
         <tbody>
             <?php foreach ($product_elements as $product_element) : ?>
                 <tr>
-                    <th scope="row"><?= $product_element['idProduct'] ?></th>
                     <td><?= $product_element['product_name'] ?></td>
                     <td><img class="img-fluid" src="<?= $product_element['image_product'] ?>" alt="image-produit"></td>
                     <td>
@@ -34,4 +32,13 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination pagination-sm">
+        <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+            <li class="page-item <?= $i == $current_page ? 'active' : '' ?>">
+                <a class="page-link" href="?page=<?= $i ?>"><?= $i ?></a>
+            </li>
+        <?php endfor; ?>
+      </ul>
+    </nav>
 </div>

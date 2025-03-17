@@ -68,7 +68,7 @@ class ProductController extends AbstractController {
         $newsQuery = new NewsletterService;
         
         $newProduct->setId($product_id);
-        $product_element = $tableSql->findOne($newProduct->getId());
+        $product_element = $tableSql->findById($newProduct->getId());
         $elements = $productPage->findElements('Produits');
         $newsletterStatus = $newsQuery->newsletterSubscription();
 
@@ -86,16 +86,25 @@ class ProductController extends AbstractController {
     {
         $dashboardPage = new PageManager;
         $elements = $dashboardPage->findAllPage();
+        
+        $limit = 4;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($page - 1) * $limit;
 
         $tableSql = new ProductManager;
-        $product_elements = $tableSql->findAll();
-
+        $product_elements = $tableSql->findAllPagination($limit, $offset);
+    
+        $totalProducts = $tableSql->countAll();
+        $totalPages = ceil($totalProducts / $limit);
+    
         $this->render('/product/product-dashboard.html.php', [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
             'elements' => $elements,
-            'product_elements'=>$product_elements
+            'product_elements' => $product_elements,
+            'current_page' => $page,
+            'total_pages' => $totalPages
         ], 'dashboard.html.php');
     }
 
@@ -210,83 +219,56 @@ class ProductController extends AbstractController {
         ], 'dashboard.html.php');
     }
 
-    public function update()
+    public function update($params)
     {
+        $idProduct = $params['idProduct'] ?? null;
 
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-            if(!empty($_POST['product_name']) && !empty($_POST['description']) && !empty($_FILES['image_product']['name'])){
-    
-                $newProduct = new ProductModel;
-    
-                $newProduct->setId($_GET['product_id']);
-                $newProduct->setProduct_name($_POST['product_name']);
-                $newProduct->setProduct_image($_FILES['image_product']['name']);
-                $newProduct->setDescription($_POST['description']);
-    
-                $product_id = $newProduct->getId();
-                $product_name = $newProduct->getProduct_name();
-                $image_product = $newProduct->getProduct_image();
-                $description = $newProduct->getDescription();
-                    
-                //image infos :
-                $tmpName = $_FILES['image_product']['tmp_name'];
-    
-                //Get extension of image :
-                $imgExtension = pathinfo($image_product, PATHINFO_EXTENSION);
-    
-                //Regex for extension valid :
-                $extensionValid = ['jpg', 'jpeg','gif','png','webp'];
-        
-                //Test if extension is valid or not :
-                if (!in_array(strtolower($imgExtension),$extensionValid)){
-                    $msg_error = "l'extention de l'image n'est pas valide";
-                    
-                    $dashboardPage = new PageManager;
-                    $elements = $dashboardPage->findAllPage();
-
-                    $this->render('/product/update.html.php', [
-                        'title' => 'Dashboard',
-                        'first_title' => 'Dashboard administrateur',
-                        'name' => 'dashboard',
-                        'elements' => $elements,
-                        'msg_error' => $msg_error
-                    ], 'dashboard.html.php');
-                } else {
-                    $newQuery = new ProductManager;
-                    
-                    move_uploaded_file($tmpName, 'assets/images/produits/'. $image_product);
-                    
-                    $image_product = "/assets/images/produits/" . $image_product;
-
-                    $newQuery->update($product_id, $product_name, $image_product, $description);
-                    
-                    $this->redirect('/dashboard/produits');
-                }
-            } else {
-                $msg_error = "Vueillez remplir tous les champs";
-
-                $dashboardPage = new PageManager;
-                $elements = $dashboardPage->findAllPage();
-
-                $this->render('/product/update.html.php', [
-                    'title' => 'Dashboard',
-                    'first_title' => 'Dashboard administrateur',
-                    'name' => 'dashboard',
-                    'elements' => $elements,
-                    'msg_error' => $msg_error
-                ], 'dashboard.html.php');
-            }
+        $productManager = new ProductManager();
+        $product = $productManager->findById($idProduct);
+        if (!$product) {
+            die("Produit non trouvé.");
         }
 
-        $dashboardPage = new PageManager;
-        $elements = $dashboardPage->findAllPage();
+        $categoryManager = new ProductManager();
+        $categorys = $categoryManager->findCategory();
+    
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $product_name = $_POST['product_name'] ?? $product['product_name'];
+            $description = $_POST['description'] ?? $product['description'];
+    
+            $category_id = $_POST['category'] ?? $product['category_id'];
+    
+            if (!empty($_FILES['image_product']['name'])) {
+                $image_product = $_FILES['image_product']['name'];
+                $tmpName = $_FILES['image_product']['tmp_name'];
+    
+                $imgExtension = pathinfo($image_product, PATHINFO_EXTENSION);
+                $extensionValid = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
+    
+                if (!in_array(strtolower($imgExtension), $extensionValid)) {
+                    $msg_error = "L'extension de l'image n'est pas valide";
+                } else {
+                    move_uploaded_file($tmpName, 'assets/images/produits/' . $image_product);
+                    $image_product = "/assets/images/produits/" . $image_product;
+                }
+            } else {
+                $image_product = $product['image_product'];
+            }
+    
+            $productManager->update($idProduct, $product_name, $image_product, $description, $category_id);
+
+            $this->redirect('/dashboard/produits');
+        }
 
         $this->render('/product/update.html.php', [
             'title' => 'Dashboard',
             'first_title' => 'Dashboard administrateur',
             'name' => 'dashboard',
-            'elements' => $elements,
+            'product' => $product,
+            'categorys' => $categorys,
+            'idProduct' => $idProduct,
+            'msg_error' => $msg_error ?? null
         ], 'dashboard.html.php');
     }
 
