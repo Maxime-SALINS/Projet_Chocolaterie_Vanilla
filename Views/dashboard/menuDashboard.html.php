@@ -1,58 +1,83 @@
-<aside class="col-2 text-center bg-primary-subtle p-3 menu_style">
-    <h2 class="text-uppercase text-decoration-underline fs-5">panel administrateur</h2>
+<aside class="navbar navbar-vertical navbar-expand-lg" data-bs-theme="dark">
     <div class="container-fluid">
-        <ul class="nav flex-column">
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard">
-                    <i class="bi bi-house"></i>
-                    Accueil dashboard
-                </a>
-            </li>
-            <li class="nav-item dropdown my-2">
-                <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-file-post"></i>
-                    Gestion contenu
-                </a>
-                <ul class="dropdown-menu">
-                    <?php foreach ($elements as $element):?>
-                        <li><a class="dropdown-item text-center" href="/dashboard/contenu?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a></li>
-                    <?php endforeach; ?>
-                </ul>
-            </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/referencement">
-                    <i class="bi bi-search-heart"></i>
-                    Référencement
-                </a>
-            </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/produits">
-                    <i class="bi bi-cookie"></i>
-                    Gestion produits
-                </a>
-            </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/statistique">
-                    <i class="bi bi-graph-up"></i>
-                    Statistique du site
-                </a>
-            </li>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/newsletter">
-                    <i class="bi bi-newspaper"></i>
-                    Gestion Newsletter
-                </a>
-            </li>
-            <hr>
-            <li class="nav-item my-2">
-                <a class="nav-link d-flex align-items-center gap-2" href="/dashboard/profil">
-                    <i class="bi bi-person-fill-gear"></i>
-                    Profil admin
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="container-fluid">
-        <a class="btn btn-danger my-3" href="/logout">Déconnexion</a>
+        <div class="navbar-brand navbar-brand-autodark">
+            <a href="/dashboard">
+                <img class="navbar-brand-image" src="../../assets/images/logo/logo-chocolaterie.png" alt="Logo chocolaterie rouvière">
+            </a>
+        </div>
+        <div id="sidebar-menu" class="collapse navbar-collapse">
+            <ul class="navbar-nav pt-lg-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Accueil dashboard
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/dashboard" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-file"></i> 
+                        </span>
+                        <span class="nav-link-title">
+                            Gestion contenu
+                        </span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-menu-columns">
+                            <div class="dropdown-menu-column">
+                                <?php foreach ($elements as $element):?>
+                                    <a class="dropdown-item" href="/dashboard/contenu?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/referencement">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Référencement
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/produits">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-cookie"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Gestion produits
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/newsletter">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-newspaper"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Gestion Newsletter
+                        </span>
+                    </a>
+                </li>
+                <hr>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard/profil">
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <i class="fa-solid fa-gear"></i>
+                        </span>
+                        <span class="nav-link-title">
+                            Profil utilisateur
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </aside>

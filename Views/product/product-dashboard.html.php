@@ -1,6 +1,6 @@
-<h2 class="text-uppercase text-center">gestion des produits</h2>
+<h2 class="text-uppercase text-center my-5">gestion des produits</h2>
 <div class="container my-5">
-    <a class="btn btn-primary" href="/dashboard/produits/ajout-produit"><i class="bi bi-plus-circle"></i></a>
+    <a class="btn btn-primary" href="/dashboard/produits/ajout-produit"><i class="bi bi-plus-circle-fill"></i></a>
     <table class="table table-striped mt-2">
         <thead>
             <tr>
