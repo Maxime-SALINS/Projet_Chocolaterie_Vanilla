@@ -16,11 +16,9 @@
 <body>
     <main class="page">
         <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR .'/views/dashboard/menuDashboard.html.php';?>
-        <section class="page-wrapper">
+        <section class="page-wrapper bg-body-secondary">
             <?php require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '/views/dashboard/headerDashboard.html.php';?>
-            <div class="bg-body-secondary">
-                <?= $content ?>
-            </div>
+            <?= $content ?>
         </section>
     </main>
     

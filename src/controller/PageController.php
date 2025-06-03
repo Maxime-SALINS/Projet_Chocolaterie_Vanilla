@@ -1,15 +1,13 @@
 <?php
 namespace App\controller;
 
-use App\model\PageModel;
 use App\manager\PageManager;
-use App\service\NewsletterService;
 use Utils\UtilsController\AbstractController;
 
 
 class PageController extends AbstractController {
 
-    public function viewDashPage(string $page_name)
+    public function dashboardPageContentUpdate(string $page_name)
     {
         if(empty($_SESSION) || $_SESSION['role'] !== 'admin'){
             $this->redirect('/');
@@ -17,15 +15,24 @@ class PageController extends AbstractController {
         } else {
             $dashboardPage = new PageManager;
             $elements = $dashboardPage->findAllPage();
-            $page_elements = $dashboardPage->findElementsDash($page_name);
+            
+            $limit = 6;
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $offset = ($page - 1) * $limit;
 
-            $this->render('', [
+            $page_elements = $dashboardPage->findElementsDash($page_name, $limit, $offset);
+
+            $totalPageInBdd = $dashboardPage->countAll($page_name);
+            $totalPages = ceil($totalPageInBdd / $limit);
+            
+            $this->render('/dashboard/pageContentDashboard.html.php', [
                 'title' => 'Dashboard',
-                'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard',
-                'elements' => $elements,
-                'page_elements'=>$page_elements
-            ], 'dashboard',$file);
+                'elements'=> $elements,
+                'page_elements' => $page_elements,
+                'current_page' => $page,
+                'total_pages' => $totalPages
+            ], 'dashboard.html.php');
         }
     }
 

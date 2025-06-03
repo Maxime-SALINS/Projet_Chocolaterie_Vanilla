@@ -7,17 +7,21 @@
 
 /*----- Style navbar -----*/
 
+.white{
+    background-color: #FFFF;
+}
+
 .container-fluid{
     justify-content: center !important;
 }
 
 /*----- Style hover navbar -----*/
 
-.nav-link:hover {
+.nav-link-custom:hover {
     color: #5E3A20 !important;
 }
 
-.nav-link::before {
+.nav-link-custom::before {
     transition: 1150ms;
     height: 1px;
     content: "";
@@ -42,7 +46,7 @@
 
 /*----- Style lien navbar -----*/
 
-.nav-link{
+.nav-link-custom{
     color: #876647;
     position: relative;
 }
@@ -140,12 +144,12 @@
         padding: 0 2% !important;
     }
 
-    .nav-link:hover{
+    .nav-link-custom:hover{
         background-color: #876647;
         color: white !important;
     }
 
-    .nav-link::before{
+    .nav-link-custom::before{
         height: 0px;
     }
 }

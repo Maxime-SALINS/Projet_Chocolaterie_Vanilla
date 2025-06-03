@@ -1,31 +1,39 @@
-<h2 class="text-uppercase text-center my-5">gestion des produits</h2>
+<h2 class="text-uppercase text-center">gestion du contenue</h2>
 <div class="container my-5">
-    <a class="btn btn-primary" href="/dashboard/produits/ajout-produit"><i class="fa-solid fa-circle-plus"></i></a>
-    <table class="table table-vcenter table-striped my-3">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Nom</th>
-                <th scope="col">Image</th>
-                <th scope="col">Description</th>
-                <th scope="col">Category</th>
+                <th scope="col">Type</th>
+                <th scope="col">Contenu</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($product_elements as $product_element) : ?>
+            <?php foreach ($page_elements as $page_element) : ?>
                 <tr>
-                    <td><?= $product_element['product_name'] ?></td>
-                    <td><img class="img-fluid" src="<?= $product_element['image_product'] ?>" alt="image-produit"></td>
-                    <td>
-                        <p class="overflow-auto" style="max-height: 85px;"><?= $product_element['description'] ?></p>
+                    <?php if($page_element['element_type'] === 'h1'): ?>
+                        <td>Titre principale</td>
+                    <?php elseif($page_element['element_type'] === 'h2'):?>
+                        <td>Titre secondaire</td>
+                    <?php elseif($page_element['element_type'] === 'h3'):?>
+                        <td>Sous-titre</td>
+                    <?php elseif($page_element['element_type'] === 'image'):?>
+                        <td>image</td>
+                    <?php elseif($page_element['element_type'] === 'image description'):?>
+                        <td>Description de l'image</td>
+                    <?php else:?>
+                        <td>Texte</td>
+                    <?php endif;?>
+                    <td class="w-50">
+                        <?php if($page_element['element_type'] === 'image'): ?>
+                            <img class="img-fluid" style="width: 150px; heigth: 150px;" src="<?= $page_element['content'] ?>" alt="image base de données">
+                        <?php else:?>
+                            <?= $page_element['content'] ?>
+                        <?php endif;?>
                     </td>
-                    <td class="text-center"><?= $product_element['category_name'] ?></td>
                     <td>
-                        <a class="btn btn-success my-1" href="/dashboard/produit/modification/<?= $product_element['idProduct'] ?>">
+                        <a class="btn btn-success" href="/dashboard/contenu/update?id=<?= $page_element['idElements']?>&element_type=<?= $page_element['idElements']?>">
                             <i class="fa-solid fa-pencil"></i>
-                        </a>
-                        <a class="btn btn-danger my-1" href="/dashboard/produit/supprimer/<?= $product_element['idProduct'] ?>">
-                            <i class="fa-solid fa-trash"></i>
                         </a>
                     </td>
                 </tr>

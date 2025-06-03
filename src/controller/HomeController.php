@@ -41,7 +41,6 @@ class HomeController extends AbstractController
 
             $this->render('/dashboard/home-dashboard.html.php', [
                 'title' => 'Dashboard',
-                'first_title' => 'Dashboard administrateur',
                 'name' => 'dashboard',
                 'elements' => $elements,
                 'news_elements' => $news_elements

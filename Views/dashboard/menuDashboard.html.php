@@ -30,7 +30,7 @@
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 <?php foreach ($elements as $element):?>
-                                    <a class="dropdown-item" href="/dashboard/contenu?page_name=<?= $element['page_name']?>"><?= $element['page_name']?></a>
+                                    <a class="dropdown-item" href="/dashboard/contenu/<?= $element['page_name']?>"><?= $element['page_name']?></a>
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard/profil">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
-                            <i class="fa-solid fa-gear"></i>
+                            <i class="fa-solid fa-user"></i>
                         </span>
                         <span class="nav-link-title">
                             Profil utilisateur

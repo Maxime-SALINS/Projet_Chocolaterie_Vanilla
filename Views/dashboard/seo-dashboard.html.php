@@ -19,7 +19,7 @@
                     <td><?= $seo_element['content'] ?></td>
                     <td>
                         <a class="btn btn-success" href="/dashboard/referencement/modification/<?= $seo_element['id'] ?>">
-                            <i class="bi bi-pencil-fill"></i>
+                            <i class="fa-solid fa-pencil"></i>
                         </a>
                     </td>
                 </tr>

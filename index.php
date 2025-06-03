@@ -42,6 +42,12 @@ $router->get('/logout', "Login#logout");
 //Home Dashboard
 $router->get('/dashboard', "Home#dashboard");
 
+//User profil
+$router->get('/dashboard/profil', "User#index");
+
+//Content page update
+$router->get('/dashboard/contenu/:page', "Page#dashboardPageContentUpdate")->with('page', '[a-zA-Z-]+');
+
 //Referencement manager
 $router->get('/dashboard/referencement', "Referencement#index");
 $router->get('/dashboard/referencement/modification/:id', "Referencement#update")->with('id', '[0-9]+');

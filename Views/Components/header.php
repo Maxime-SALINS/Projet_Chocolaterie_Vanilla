@@ -1,4 +1,4 @@
-<header>
+<header class="white">
     <div class="navbar justify-content-beetween py-0">
         <a class="navbar-brand mx-2" href="/">
             <img class="img-fluid" src="../../assets/images/logo/logo-chocolaterie.png" alt="logo-chocolaterie">
@@ -10,10 +10,10 @@
                     <div class="collapse navbar-collapse justify-content-center">
                         <ul class="navbar-nav">
                             <li class="nav-item mx-5">
-                                <a class="nav-link nav-link-ltr text-uppercase" aria-current="page" href="/">Accueil</a>
+                                <a class="nav-link nav-link-ltr text-uppercase nav-link-custom" aria-current="page" href="/">Accueil</a>
                             </li>
                             <li class="nav-item dropdown mx-5">
-                                <a class="nav-link nav-link-ltr text-uppercase dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link nav-link-ltr text-uppercase nav-link-custom dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Produits
                                 </a>
                                 <ul class="dropdown-menu">
@@ -25,7 +25,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item mx-5">
-                                <a class="nav-link nav-link-ltr text-uppercase" href="/histoire">Histoire</a>
+                                <a class="nav-link nav-link-ltr nav-link-custom text-uppercase" href="/histoire">Histoire</a>
                             </li>
                             <li class="nav-item mx-5 d-block d-lg-none d-xl-none">
                                 <a class="contact-responsive nav-link-ltr text-uppercase text-decoration-none" href="contact">contact</a>

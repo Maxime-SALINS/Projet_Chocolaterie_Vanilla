@@ -23,7 +23,7 @@ class PageManager{
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function findElementsDash(string $page_name): array
+    public function findElementsDash(string $page_name, $limit = 5, $offset = 0): array
     {
         $sql = "SELECT p.page_name, e.idElements, e.element_type, pe.elements_position, pe.content
         FROM `pages_has_elements` pe 
@@ -32,13 +32,32 @@ class PageManager{
         JOIN `elements` e 
         ON pe.idElements = e.idElements
         WHERE page_name = :page_name
-        AND e.element_type != 'meta description'";
+        AND e.element_type != 'meta description'
+        LIMIT :limit OFFSET :offset";
 
         $stmt = Database::getPDO()->prepare($sql);
         $stmt->bindValue(':page_name', $page_name, PDO::PARAM_STR);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countAll(string $page_name): int
+    {
+        $sql = "SELECT COUNT(*) 
+                FROM `pages_has_elements` pe
+                INNER JOIN `pages` p ON pe.idPages = p.idPages
+                JOIN `elements` e ON pe.idElements = e.idElements
+                WHERE p.page_name = :page_name
+                AND e.element_type != 'meta description'";
+    
+        $stmt = Database::getPDO()->prepare($sql);
+        $stmt->bindValue(':page_name', $page_name, PDO::PARAM_STR);
+        $stmt->execute();
+    
+        return (int) $stmt->fetchColumn();
     }
 
     public function findAllPage():array
