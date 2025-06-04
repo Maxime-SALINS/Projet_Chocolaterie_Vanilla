@@ -1,4 +1,4 @@
-<h2 class="text-uppercase text-center">gestion du contenue</h2>
+<h2 class="text-uppercase text-center my-5">gestion du contenue</h2>
 <div class="container my-5">
     <table class="table table-striped">
         <thead>
@@ -32,7 +32,7 @@
                         <?php endif;?>
                     </td>
                     <td>
-                        <a class="btn btn-success" href="/dashboard/contenu/update?id=<?= $page_element['idElements']?>&element_type=<?= $page_element['idElements']?>">
+                        <a class="btn btn-success" href="/dashboard/contenu/update/<?= $page_element['idElements']?>/<?= $page_element['element_type']?>">
                             <i class="fa-solid fa-pencil"></i>
                         </a>
                     </td>

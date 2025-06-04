@@ -47,6 +47,7 @@ $router->get('/dashboard/profil', "User#index");
 
 //Content page update
 $router->get('/dashboard/contenu/:page', "Page#dashboardPageContentUpdate")->with('page', '[a-zA-Z-]+');
+$router->get('/dashboard/contenu/update/:id/:slug', "Page#updateElementsPage")->with('id', '[0-9]+')->with('slug', '[0-9a-zA-Z-]+');
 
 //Referencement manager
 $router->get('/dashboard/referencement', "Referencement#index");

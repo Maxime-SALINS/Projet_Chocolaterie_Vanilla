@@ -221,11 +221,11 @@ class ProductController extends AbstractController {
 
     public function update($params)
     {
-        $idProduct = $params['idProduct'] ?? null;
+        $idProduct = (int) $params['idProduct'] ?? null;
 
         $productManager = new ProductManager();
         $product = $productManager->findById($idProduct);
-        if (!$product) {
+        if ( empty($product) || $product === null) {
             die("Produit non trouvé.");
         }
 

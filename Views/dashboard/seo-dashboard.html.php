@@ -3,7 +3,6 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Pages</th>
                 <th scope="col">Type</th>
                 <th scope="col">Contenu</th>
@@ -13,7 +12,6 @@
         <tbody>
             <?php foreach ($seo_elements as $seo_element) : ?>
                 <tr>
-                    <th scope="row"><?= $seo_element['id'] ?></th>
                     <td><?= $seo_element['page_name'] ?></td>
                     <td><?= $seo_element['element_type'] ?></td>
                     <td><?= $seo_element['content'] ?></td>
